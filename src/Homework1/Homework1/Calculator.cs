@@ -2,7 +2,7 @@
 
 namespace Homework1
 {
-    static public class Calculator
+    public static class Calculator
     {
         public static int Calculate(string operation, int val1, int val2)
         {
