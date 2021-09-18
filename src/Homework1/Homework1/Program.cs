@@ -1,31 +1,22 @@
 ﻿using System;
+using System.Linq;
 
 namespace Homework1
 {
     internal static class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            var val1 = int.Parse(args[0]);
-            var operation = args[1];
-            var val2 = int.Parse(args[2]);
-            var result = 0;
-            switch (operation)
+            var parseResult = Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
+            if (parseResult != 0)
             {
-                case "+":
-                    result = val1 + val2;
-                    break;
-                case "-":
-                    result = val1 - val2;
-                    break;
-                case "*":
-                    result = val1 * val2;
-                    break;
-                case "/":
-                    result = val1 / val2;
-                    break;
+                return parseResult;
             }
+
+            var result = Calculator.Calculate(operation, val1, val2);
             Console.WriteLine($"{args[0]} {args[1]} {args[2]} = {result}");
+
+            return 0;
         }
     }
 }

@@ -1,0 +1,16 @@
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\Homework1.exe
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\Homework1.deps.json
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\Homework1.runtimeconfig.json
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\Homework1.runtimeconfig.dev.json
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\Homework1.dll
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\ref\Homework1.dll
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\bin\Debug\net5.0\Homework1.pdb
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.csproj.AssemblyReference.cache
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.AssemblyInfoInputs.cache
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.AssemblyInfo.cs
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.csproj.CoreCompileInputs.cache
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.dll
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\ref\Homework1.dll
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.pdb
+C:\Users\hb\ITIS\HomeWork-DotNet\src\Homework1\Homework1\obj\Debug\net5.0\Homework1.genruntimeconfig.cache
