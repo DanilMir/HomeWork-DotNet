@@ -21,6 +21,8 @@ namespace Homework1.Tests
         [InlineData(new string[] {"2", ".", "3"}, 2)]
         [InlineData(new string[] {".", ".", "."}, 1)]
         [InlineData(new string[] {"", "", ""}, 1)]
+        [InlineData(new string[] {""}, 3)]
+        [InlineData(new string[] {"", "", "", ""}, 3)]
         public void Main_InvalidArgumentsWorksAsExcepted(string[] args, int excepted)
         {
             var actual = Program.Main(args);
