@@ -16,5 +16,13 @@ namespace Homework1.Tests
             var actual = Calculator.Calculate(operation, val1, val2);
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData(0, "/", 0, 0)]
+        public void Calculate_DivideByZero(int val1, string operation, int val2, int expected)
+        {
+            var actual = Calculator.Calculate(operation, val1, val2);
+            Assert.Equal(expected, actual);
+        }
     }
 }

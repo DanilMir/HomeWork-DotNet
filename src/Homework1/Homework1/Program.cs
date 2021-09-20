@@ -17,6 +17,8 @@ namespace Homework1
             }
 
             var result = Calculator.Calculate(operation, val1, val2);
+            if (result == Int32.MaxValue)
+                return 4;
             Console.WriteLine($"{args[0]} {args[1]} {args[2]} = {result}");
 
             return 0;
