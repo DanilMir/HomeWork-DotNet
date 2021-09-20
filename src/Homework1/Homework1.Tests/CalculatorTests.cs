@@ -18,7 +18,7 @@ namespace Homework1.Tests
         }
 
         [Theory]
-        [InlineData(0, "/", 0, 0)]
+        [InlineData(0, "/", 0, Int32.MaxValue)]
         public void Calculate_DivideByZero(int val1, string operation, int val2, int expected)
         {
             var actual = Calculator.Calculate(operation, val1, val2);
