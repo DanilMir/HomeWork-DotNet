@@ -11,10 +11,10 @@ namespace Homework1.Tests
         [InlineData(2, "-", 2, 0)]
         [InlineData(2, "/", 2, 1)]
         [InlineData(2, ".", 2, 0)]
-        public void Calculate_ValidOperationsWorksAsExcepted(int val1, string operation, int val2, int excepted)
+        public void Calculate_ValidOperations(int val1, string operation, int val2, int expected)
         {
             var actual = Calculator.Calculate(operation, val1, val2);
-            Assert.Equal(excepted, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }
