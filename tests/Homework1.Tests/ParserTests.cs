@@ -1,4 +1,5 @@
 ﻿using Xunit;
+using Homework2;
 
 namespace Homework1.Tests
 {
@@ -15,7 +16,7 @@ namespace Homework1.Tests
             int expectedVal2, 
             int expected)
         {
-            var actual = Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
+            var actual = Homework2.Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
             Assert.Equal(expected, actual);
             Assert.Equal(exceptedVal1, val1);
             Assert.Equal(expectedOperation, operation);
@@ -26,7 +27,7 @@ namespace Homework1.Tests
         [InlineData(new string[] {".1", "+", ".3"}, 1)]
         public void TryParseArguments_InvalidValues(string[] args, int expected)
         {
-            var actual = Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
+            var actual = Homework2.Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
             Assert.Equal(expected, actual);
         }
         
@@ -38,7 +39,7 @@ namespace Homework1.Tests
             int expectedVal2, 
             int expected)
         {
-            var actual = Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
+            var actual = Homework2.Parser.TryParseArguments(args, out var val1, out var operation, out var val2);
             Assert.Equal(expected, actual);
             Assert.Equal(exceptedVal1, val1);
             Assert.Equal(expectedOperation, operation);

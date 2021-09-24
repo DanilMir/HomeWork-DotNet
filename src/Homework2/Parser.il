@@ -2,11 +2,15 @@
 {
   .ver 1:0:0:0
 }
-.assembly extern System.Runtime{}   
+.assembly extern System.Runtime
+{
+    .ver 4:0:0:0
+    .publickeytoken = (B0 3F 5F 7F 11 D5 0A 3A)
+} 
 .assembly extern System.Console{}   
-.assembly extern CORE_ASSEMBLY{}
-.assembly extern mscorlib{}
+.assembly extern System.Linq{}
 
+.module Homework2.dll
 
 .class public abstract sealed auto ansi beforefieldinit
   Homework2.Parser
