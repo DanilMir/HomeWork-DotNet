@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework1", "src\Homework1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework1.Tests", "src\Homework1\Homework1.Tests\Homework1.Tests.csproj", "{298175C7-1A41-4B9D-9581-4A563B626436}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework2", "src\Homework2\Homework2.ilproj", "{d36b1686-c823-48f0-8066-654fe9d6207e}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
