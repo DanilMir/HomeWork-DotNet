@@ -12,6 +12,12 @@
 
 .module Homework2.dll
 
+// Type: Homework2.Parser 
+// Assembly: Homework2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: BC5468D2-8FCC-418C-8C3A-35019793ACA5
+// Location: /home/hb/RiderProjects/HomeWork-DotNet/src/Homework2/Homework2/bin/Debug/net5.0/Homework2.dll
+// Sequence point data from /home/hb/RiderProjects/HomeWork-DotNet/src/Homework2/Homework2/bin/Debug/net5.0/Homework2.pdb
+
 .class public abstract sealed auto ansi beforefieldinit
   Homework2.Parser
     extends [System.Runtime]System.Object
@@ -253,6 +259,57 @@
     IL_00f1: ret
 
   } // end of method Parser::TryParseArguments
+
+  .method public hidebysig static int32
+    CheckArgsCount(
+      string[] args
+    ) cil managed
+  {
+    .maxstack 2
+    .locals init (
+      [0] bool V_0,
+      [1] int32 V_1
+    )
+
+    // [40 9 - 40 10]
+    IL_0000: nop
+
+    // [41 13 - 41 34]
+    IL_0001: ldarg.0      // args
+    IL_0002: ldlen
+    IL_0003: conv.i4
+    IL_0004: ldc.i4.3
+    IL_0005: ceq
+    IL_0007: ldc.i4.0
+    IL_0008: ceq
+    IL_000a: stloc.0      // V_0
+
+    IL_000b: ldloc.0      // V_0
+    IL_000c: brfalse.s    IL_001e
+
+    // [42 13 - 42 14]
+    IL_000e: nop
+
+    // [43 17 - 43 72]
+    IL_000f: ldstr        "The number of arguments must be 3"
+    IL_0014: call         void [System.Console]System.Console::WriteLine(string)
+    IL_0019: nop
+
+    // [44 17 - 44 26]
+    IL_001a: ldc.i4.3
+    IL_001b: stloc.1      // V_1
+    IL_001c: br.s         IL_0022
+
+    // [47 13 - 47 22]
+    IL_001e: ldc.i4.0
+    IL_001f: stloc.1      // V_1
+    IL_0020: br.s         IL_0022
+
+    // [48 9 - 48 10]
+    IL_0022: ldloc.1      // V_1
+    IL_0023: ret
+
+  } // end of method Parser::CheckArgsCount
 
   .method private hidebysig static specialname rtspecialname void
     .cctor() cil managed
