@@ -13,7 +13,7 @@ namespace Homework1.Tests
         [InlineData(2, ".", 2, 0)]
         public void Calculate_ValidOperations(int val1, string operation, int val2, int expected)
         {
-            var actual = Calculator.Calculate(operation, val1, val2);
+            var actual = Homework2.Calculator.Calculate(operation, val1, val2);
             Assert.Equal(expected, actual);
         }
 
@@ -21,7 +21,7 @@ namespace Homework1.Tests
         [InlineData(0, "/", 0, Int32.MaxValue)]
         public void Calculate_DivideByZero(int val1, string operation, int val2, int expected)
         {
-            var actual = Calculator.Calculate(operation, val1, val2);
+            var actual = Homework2.Calculator.Calculate(operation, val1, val2);
             Assert.Equal(expected, actual);
         }
     }
