@@ -35,5 +35,16 @@ namespace Homework1
 
             return 0;
         }
+        
+        public static int CheckArgsCount(string[] args)
+        {
+            if (args.Length != 3)
+            {
+                Console.WriteLine("The number of arguments must be 3");
+                return 3;
+            }
+
+            return 0;
+        }
     }
 }
