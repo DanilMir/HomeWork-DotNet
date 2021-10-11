@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Homework2\Homework2.ilproj" />
+      <ProjectReference Include="..\..\Homework4\Homework4.fsproj" />
     </ItemGroup>
 
 </Project>
