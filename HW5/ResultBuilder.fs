@@ -9,6 +9,6 @@ type ResultBuilder() =
         | Fail msg -> Fail msg
 
     member this.Return(x) =
-        Some x
+        Success x
         
 let resultBuilder = new ResultBuilder()
