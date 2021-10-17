@@ -1,10 +1,12 @@
 ﻿module HW5.ResultComputation
 
+open Result
+
 type ResultBuilder() =
     member this.Bind(x, f) =
         match x with
-        | None -> None
-        | Some a -> f a
+        | Success x -> f x
+        | Fail msg -> Fail msg
 
     member this.Return(x) =
         Some x
