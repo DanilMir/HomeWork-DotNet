@@ -7,7 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Library.fs"/>
+        <Compile Include="RecultBuilder.fs" />
+        <Compile Include="Parser.fs" />
     </ItemGroup>
 
 </Project>
