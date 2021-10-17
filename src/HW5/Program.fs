@@ -22,6 +22,10 @@ let main args =
     
     
     match result with
-    | Success x -> printf $"Result: {argsInLine args} = {x}"
-    | Fail msg -> printf $"Error: {msg}"
-    0
+    | Success x ->
+                       printf $"Result: {argsInLine args} = {x}"
+                       0
+    | Fail msg ->
+                      printf $"Error: {msg}"
+                      1
+    

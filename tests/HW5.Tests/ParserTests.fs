@@ -4,6 +4,7 @@ open Xunit
 open HW5.Parser
 open HW5.Result
 
+
 [<Theory>]
 [<InlineData("1", "+", "3", 3)>]
 let ``checkArgsCount valid`` arg1 arg2 arg3 expected =

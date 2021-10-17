@@ -4,6 +4,7 @@ open HW5
 open Xunit
 open Calculator
 open Result
+open HW5.Result
 
 [<Theory>]
 [<InlineData(1, "+", 2, 3)>]
