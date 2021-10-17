@@ -12,5 +12,5 @@ let Calculate (val1: decimal) operation (val2: decimal) =
         if val2 = 0m then
            Fail "Divide by zero"
         else
-           Success (val1 +  val2)
+           Success (val1 / val2)
         | _ -> Fail "Undefined operation"
