@@ -9,6 +9,7 @@ open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
+open Handler
 
 // ---------------------------------
 // Models
@@ -61,7 +62,7 @@ let webApp =
         GET >=>
             choose [
                 route "/" >=> indexHandler "world"
-                routef "/hello/%s" indexHandler
+                route "/calculate" >=> someHttpHandler
             ]
         setStatusCode 404 >=> text "Not Found" ]
 
@@ -80,8 +81,7 @@ let errorHandler (ex : Exception) (logger : ILogger) =
 let configureCors (builder : CorsPolicyBuilder) =
     builder
         .WithOrigins(
-            "http://localhost:5000",
-            "https://localhost:5001")
+            "http://localhost:5000")
        .AllowAnyMethod()
        .AllowAnyHeader()
        |> ignore

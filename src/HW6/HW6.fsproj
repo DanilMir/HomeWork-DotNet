@@ -13,6 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Result.fs" />
+    <Compile Include="Expression.fs" />
+    <Compile Include="ResultBuilder.fs" />
+    <Compile Include="Calculator.fs" />
+    <Compile Include="Handler.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
