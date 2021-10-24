@@ -92,8 +92,7 @@ let configureApp (app : IApplicationBuilder) =
     | true  ->
         app.UseDeveloperExceptionPage()
     | false ->
-        app .UseGiraffeErrorHandler(errorHandler)
-            .UseHttpsRedirection())
+        app .UseGiraffeErrorHandler(errorHandler))
         .UseCors(configureCors)
         .UseStaticFiles()
         .UseGiraffe(webApp)
