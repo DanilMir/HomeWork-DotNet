@@ -17,4 +17,6 @@ let Calculate (val1: decimal) operation (val2: decimal) =
         | _ -> Fail "Undefined operation"
         
 let CalculateExpression (expression: Expression) =
-    Calculate expression.V1 expression.Operation expression.V2
+    match Calculate expression.V1 expression.Operation expression.V2 with
+    | Success x -> x
+    | Fail msg -> failwith msg
