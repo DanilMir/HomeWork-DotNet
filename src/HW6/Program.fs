@@ -1,124 +1,30 @@
-module HW6.App
+module HW6.Program
 
 open System
+open System.Collections.Generic
 open System.IO
-open Microsoft.AspNetCore.Builder
-open Microsoft.AspNetCore.Cors.Infrastructure
+open System.Linq
+open System.Threading.Tasks
+open Microsoft.AspNetCore
 open Microsoft.AspNetCore.Hosting
+open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
-open Microsoft.Extensions.DependencyInjection
-open Giraffe
-open Handler
+open HW6
+open Startup
 
-// ---------------------------------
-// Models
-// ---------------------------------
+module Program =
+    let createHostBuilder args =
+        Host
+            .CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(fun webBuilder -> webBuilder.UseStartup<Startup>() |> ignore)
 
-type Message =
-    {
-        Text : string
-    }
+    [<EntryPoint>]
+    let main _ =
+        Host
+            .CreateDefaultBuilder()
+            .ConfigureWebHostDefaults(fun webHostBuilder -> webHostBuilder.UseStartup<Startup>() |> ignore)
+            .Build()
+            .Run()
 
-// ---------------------------------
-// Views
-// ---------------------------------
-
-module Views =
-    open Giraffe.ViewEngine
-
-    let layout (content: XmlNode list) =
-        html [] [
-            head [] [
-                title []  [ encodedText "HW6" ]
-                link [ _rel  "stylesheet"
-                       _type "text/css"
-                       _href "/main.css" ]
-            ]
-            body [] content
-        ]
-
-    let partial () =
-        h1 [] [ encodedText "HW6" ]
-
-    let index (model : Message) =
-        [
-            partial()
-            p [] [ encodedText model.Text ]
-        ] |> layout
-
-// ---------------------------------
-// Web app
-// ---------------------------------
-
-let indexHandler (name : string) =
-    let greetings = sprintf "Hello %s, from Giraffe!" name
-    let model     = { Text = greetings }
-    let view      = Views.index model
-    htmlView view
-
-let webApp =
-    choose [
-        GET >=>
-            choose [
-                route "/" >=> indexHandler "world"
-                route "/calculate" >=> someHttpHandler
-            ]
-        setStatusCode 404 >=> text "Not Found" ]
-
-// ---------------------------------
-// Error handler
-// ---------------------------------
-
-let errorHandler (ex : Exception) (logger : ILogger) =
-    logger.LogError(ex, "An unhandled exception has occurred while executing the request.")
-    clearResponse >=> setStatusCode 500 >=> text ex.Message
-
-// ---------------------------------
-// Config and Main
-// ---------------------------------
-
-let configureCors (builder : CorsPolicyBuilder) =
-    builder
-        .WithOrigins(
-            "http://localhost:5000")
-       .AllowAnyMethod()
-       .AllowAnyHeader()
-       |> ignore
-
-let configureApp (app : IApplicationBuilder) =
-    let env = app.ApplicationServices.GetService<IWebHostEnvironment>()
-    (match env.IsDevelopment() with
-    | true  ->
-        app.UseDeveloperExceptionPage()
-    | false ->
-        app .UseGiraffeErrorHandler(errorHandler))
-        .UseCors(configureCors)
-        .UseStaticFiles()
-        .UseGiraffe(webApp)
-
-let configureServices (services : IServiceCollection) =
-    services.AddCors()    |> ignore
-    services.AddGiraffe() |> ignore
-
-let configureLogging (builder : ILoggingBuilder) =
-    builder.AddConsole()
-           .AddDebug() |> ignore
-
-[<EntryPoint>]
-let main args =
-    let contentRoot = Directory.GetCurrentDirectory()
-    let webRoot     = Path.Combine(contentRoot, "WebRoot")
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(
-            fun webHostBuilder ->
-                webHostBuilder
-                    .UseContentRoot(contentRoot)
-                    .UseWebRoot(webRoot)
-                    .Configure(Action<IApplicationBuilder> configureApp)
-                    .ConfigureServices(configureServices)
-                    .ConfigureLogging(configureLogging)
-                    |> ignore)
-        .Build()
-        .Run()
-    0
+        0
