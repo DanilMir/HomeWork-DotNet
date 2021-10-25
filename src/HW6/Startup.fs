@@ -10,7 +10,7 @@ open Giraffe
 
 let webApp =
     choose [ route "/ping" >=> text "pong"
-             route "/" >=> htmlFile "/pages/index.html" ]
+             ]
 
 type Startup() =
     member __.ConfigureServices (services : IServiceCollection) =
