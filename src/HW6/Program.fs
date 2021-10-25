@@ -1,4 +1,4 @@
-module HW6.Program
+namespace HW6
 
 open System
 open System.Collections.Generic
@@ -11,9 +11,16 @@ open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open HW6
-open Startup
 
 module Program =
+    let CreateHostBuilder (_: string array) =
+        Host
+            .CreateDefaultBuilder()
+            .ConfigureWebHostDefaults(fun webHostBuilder ->
+                webHostBuilder
+                   .UseStartup<Startup>()
+                |> ignore)
+    
     let createHostBuilder args =
         Host
             .CreateDefaultBuilder(args)
