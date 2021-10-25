@@ -12,7 +12,7 @@ let argsInLine (args: string[]) = String.Join(" ",args)
 [<EntryPoint>]
 let main args =
     let result = resultBuilder{
-        let checkArgsCount = checkArgsCount args
+        let! checkArgsCount = checkArgsCount args
         let! val1 = parseValue args.[0]
         let! operand = parseOperand args.[1]
         let! val2 = parseValue args.[2]
