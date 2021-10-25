@@ -11,13 +11,6 @@ namespace HW6.WebTests
 {
     public class UnitTest1
     {
-        [Fact]
-        public void Test1()
-        {
-            //var client = new WebApplicationFactory<Startup>().CreateClient();
-            
-        }
-        
         [Theory]
         [InlineData("/ping")]
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
@@ -35,6 +28,9 @@ namespace HW6.WebTests
         
         [Theory]
         [InlineData(1, "sum", 2, 3)]
+        [InlineData(1, "div", 2, 0.5)]
+        [InlineData(1, "mult", 2, 2)]
+        [InlineData(1, "dif", 2, -1)]
         public async Task Calculate_Good_Request(decimal val1, string operation, decimal val2, decimal expected)
         {
             // Arrange
@@ -52,6 +48,28 @@ namespace HW6.WebTests
             var res = decimal.TryParse(str, NumberStyles.Any ,CultureInfo.InvariantCulture, out var value);
             Assert.True(res);
             Assert.Equal(expected, value);
+        }
+        
+        
+        [Theory]
+        [InlineData("/calculate?v1=1&Operation=div&v2=0", "Divide by zero", HttpStatusCode.InternalServerError)]
+        [InlineData("/calculate?v1=1&Operation=s&v2=0", "Undefined operation", HttpStatusCode.InternalServerError)]
+        [InlineData("/calculate?v1=1&Operation=div", "\"Missing value for required property V2.\"", HttpStatusCode.BadRequest)]
+        [InlineData("/calculate?v1=1", "\"Missing value for required property Operation.\"", HttpStatusCode.BadRequest)]
+        [InlineData("/calculate?", "\"Missing value for required property V1.\"", HttpStatusCode.BadRequest)]
+        public async Task Calculate_BadRequest(string url, string expected, HttpStatusCode expectedStatusCode)
+        {
+            // Arrange
+            var client = new WebApplicationFactory<Startup>().CreateClient();
+            
+            // Act
+            var response = await client.GetAsync(url);
+
+            // Assert
+            Assert.Equal(expectedStatusCode, response.StatusCode);
+
+            var str = await response.Content.ReadAsStringAsync();
+            Assert.Equal(expected, str);
         }
     }
 }

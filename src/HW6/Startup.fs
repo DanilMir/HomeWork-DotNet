@@ -11,8 +11,8 @@ open HW6.Handler
 
 module Initialize =
     let webApp =
-    choose [ route "/ping" >=> text "pong"
-             route "/calculate" >=> someHttpHandler ]
+        choose [ route "/ping" >=> text "pong"
+                 route "/calculate" >=> someHttpHandler ]
 
 type Startup() =
     member __.ConfigureServices(services: IServiceCollection) =
