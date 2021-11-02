@@ -63,8 +63,8 @@ namespace WebApplication3
         }
 
         public string GenerateField(PropertyInfo prop) => $"<div class=\"editor-field\">{GenerateBody(prop)}</div>";
-        
-        public string GenerateSpan(PropertyInfo prop)
+
+        private string GenerateSpan(PropertyInfo prop)
         {
             var res =
                 $"<span class=\"field-validation-error\" data-valmsg-for=\"{prop.Name}\" data-valmsg-replace=\"true\">";
@@ -79,20 +79,14 @@ namespace WebApplication3
         public string GenerateBody(PropertyInfo prop)
         {
             var res = "";
-            if (prop.PropertyType.IsEnum)
-            {
-                res = _htmlHelper.DropDownList(prop.Name, _htmlHelper.GetEnumSelectList(prop.PropertyType)).GetString();
-            }
-            else
-            {
-                res = GenerateInput(prop);
-            }
-
+            res = prop.PropertyType.IsEnum ? 
+                _htmlHelper.DropDownList(prop.Name, _htmlHelper.GetEnumSelectList(prop.PropertyType)).GetString() :
+                GenerateInput(prop);
             res += GenerateSpan(prop);
             return res;
         }
 
-        public string GenerateInput(PropertyInfo prop)
+        private string GenerateInput(PropertyInfo prop)
         {
             var res = prop.PropertyType == typeof(string) ? 
                 $"<input class=\"text-box single-line\" type=\"text\" name=\"{prop.Name}\">" : 
@@ -101,6 +95,6 @@ namespace WebApplication3
             return res;
         }
 
-        public string NameFromCamelCase(string str) => Regex.Replace(str, "([A-Z])", " $1").Trim();
+        private string NameFromCamelCase(string str) => Regex.Replace(str, "([A-Z])", " $1").Trim();
     }
 }
