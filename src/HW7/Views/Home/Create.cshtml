@@ -1,12 +1,23 @@
 ﻿@model UserProfile
 
-@using (Html.BeginForm())
-{
+@* @using (Html.BeginForm()){ *@
+@*     <div class="form-group"> *@
+@* *@
+@*     </div> *@
+@*     <div class="form-group"> *@
+@*         @Html.EditorForModel() *@
+@*     </div> *@
+@*     <div class="form-group"> *@
+@*         <input type="submit" class="btn btn-primary"> *@
+@*     </div> *@
+@* } *@
+
+@using (Html.BeginForm()){
     <div class="form-group">
 
     </div>
     <div class="form-group">
-        @Html.EditorForModel()
+        @Html.EditorForModelNew()
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary">
