@@ -52,8 +52,8 @@ namespace HW6.WebTests
         
         
         [Theory]
-        [InlineData("/calculate?v1=1&Operation=div&v2=0", "Divide by zero", HttpStatusCode.InternalServerError)]
-        [InlineData("/calculate?v1=1&Operation=s&v2=0", "Undefined operation", HttpStatusCode.InternalServerError)]
+        [InlineData("/calculate?v1=1&Operation=div&v2=0", "\"Divide by zero\"", HttpStatusCode.BadRequest)]
+        [InlineData("/calculate?v1=1&Operation=s&v2=0", "\"Undefined operation\"", HttpStatusCode.BadRequest)]
         [InlineData("/calculate?v1=1&Operation=div", "\"Missing value for required property V2.\"", HttpStatusCode.BadRequest)]
         [InlineData("/calculate?v1=1", "\"Missing value for required property Operation.\"", HttpStatusCode.BadRequest)]
         [InlineData("/calculate?", "\"Missing value for required property V1.\"", HttpStatusCode.BadRequest)]
