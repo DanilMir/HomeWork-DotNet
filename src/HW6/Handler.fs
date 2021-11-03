@@ -1,12 +1,6 @@
 ﻿module HW6.Handler
 open System
-open System.IO
-open Microsoft.AspNetCore.Builder
-open Microsoft.AspNetCore.Cors.Infrastructure
-open Microsoft.AspNetCore.Hosting
-open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
-open Microsoft.Extensions.DependencyInjection
 open Giraffe
 open HW6
 open Expression
