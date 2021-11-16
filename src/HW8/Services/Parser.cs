@@ -10,7 +10,8 @@ namespace HW8.Services
             "+",
             "-",
             "*",
-            "/"
+            "/",
+            "+"
         };
 
         public int TryParseArguments(string[] args, out int val1, out string operation, out int val2)
