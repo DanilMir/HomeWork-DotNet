@@ -13,7 +13,7 @@ namespace HW8.Services
                 "-" => left - right,
                 "*" => left * right,
                 "/" => left / right,
-                _ => throw new ArgumentException()
+                _ => 0
             };
         }
     }
