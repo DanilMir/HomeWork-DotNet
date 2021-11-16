@@ -4,7 +4,7 @@ namespace HW8.Services
 {
     public class Calculator : ICalculator
     {
-        public decimal Calculate(int left, string operation, int right)
+        public decimal Calculate(decimal left, string operation, decimal right)
         {
             return operation switch
             {

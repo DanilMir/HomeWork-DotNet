@@ -4,6 +4,6 @@ namespace HW8.Services
 {
     public interface ICalculator
     {
-        public decimal Calculate(int val1, string operand, int val2);
+        public decimal Calculate(decimal val1, string operand, decimal val2);
     }
 }
