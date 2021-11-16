@@ -1,4 +1,6 @@
-﻿using HW8.Services;
+﻿using System;
+using HW8.Models;
+using HW8.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HW8.Controllers
@@ -6,10 +8,12 @@ namespace HW8.Controllers
     public class CalculateController : Controller
     {
         private readonly ICalculator _calculator;
+        private readonly IParser _parser;
         
-        public CalculateController(ICalculator calculator)
+        public CalculateController(ICalculator calculator, IParser parser)
         {
             _calculator = calculator;
+            _parser = parser;
         }
         
         // GET
@@ -19,30 +23,26 @@ namespace HW8.Controllers
         }
 
         [HttpGet]
-        public decimal Add(decimal val1, decimal val2)
+        public IActionResult Calc(string value1, string operation, string value2)
         {
-            return _calculator.Calculate(val1, "+", val2);
-        }
-        //https://localhost:5001/Calculate/add?val1=1&val2=2
-        
-        [HttpGet]
-        public decimal Sub(decimal val1, decimal val2)
-        {
-            return _calculator.Calculate(val1, "-", val2);
-        }
-        //https://localhost:5001/Calculate/sub?val1=1&val2=2
-        
-        [HttpGet]
-        public decimal Div(decimal val1, decimal val2)
-        {
-            return _calculator.Calculate(val1, "/", val2);
-        }
-        //https://localhost:5001/Calculate/div?val1=1&val2=1
-        
-        [HttpGet]
-        public decimal Mult(decimal val1, decimal val2)
-        {
-            return _calculator.Calculate(val1, "*", val2);
+            var result = _parser.TryParseArguments(
+                new[] {value1, operation, value2}, 
+                out var val1,
+                out var oper, 
+                out var val2
+                );
+
+            switch (result)
+            {
+                case(1):
+                    return BadRequest("Values is not valid");
+                case(2):
+                    return BadRequest("operation is not supported");
+                case (3):
+                    return BadRequest("Divide by zero");
+            }
+
+            return Ok(_calculator.Calculate(val1, oper, val2));
         }
     }
 }
