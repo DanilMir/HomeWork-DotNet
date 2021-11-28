@@ -9,7 +9,7 @@ using Xunit.Abstractions;
 
 namespace HW9.Tests
 {
-    public class UnitTest1
+    public class UnitTest1 : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly ITestOutputHelper _testOutputHelper;
         private readonly HttpClient _client;
