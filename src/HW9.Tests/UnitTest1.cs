@@ -11,13 +11,11 @@ namespace HW9.Tests
 {
     public class UnitTest1 : IClassFixture<WebApplicationFactory<Startup>>
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-        private readonly HttpClient _client;
+        private readonly WebApplicationFactory<Startup> _factory;
 
-        public UnitTest1(ITestOutputHelper testOutputHelper)
+        public UnitTest1(WebApplicationFactory<Startup> factor)
         {
-            _testOutputHelper = testOutputHelper;
-            _client = new WebApplicationFactory<Startup>().CreateClient();
+            _factory = factor;
         }
 
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
@@ -27,9 +25,10 @@ namespace HW9.Tests
         [InlineData("1/(2+3)", 2, 0)]
         public async Task TimeTest(string expression, int timeInSeconds, decimal answer)
         {
+            var client = _factory.CreateClient();
             var watch = new Stopwatch();
             watch.Start();
-            var response = await _client.GetAsync($"{ResponseBody}{expression}");
+            var response = await client.GetAsync($"{ResponseBody}{expression}");
             watch.Stop();
             var result = decimal.Parse(await response.Content.ReadAsStringAsync(), NumberStyles.Any,
                 CultureInfo.InvariantCulture);
