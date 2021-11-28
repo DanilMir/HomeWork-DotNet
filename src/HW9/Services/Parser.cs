@@ -3,9 +3,9 @@ using System.Linq.Expressions;
 
 namespace HW9.Services
 {
-    public class Parser
+    public static class Parser
     {
-        public Expression Parse(string s)
+        public static Expression Parse(string s)
         {
             int bracketCount = 0;
             int operatorIndex = -1;
@@ -30,7 +30,7 @@ namespace HW9.Services
                 s = s.Trim();
                 if (s[0] == '(' && s[^1] == ')')
                 {
-                    return Parse(s.Substring(1, s.Length - 1)); // todo: mb problems
+                    return Parse(s.Substring(1, s.Length - 2)); // todo: mb problems
                 }
                 return Expression.Constant(int.Parse(s)); // mb problems
             }
@@ -38,7 +38,7 @@ namespace HW9.Services
                 Parse(s[(operatorIndex + 1)..]));
         }
 
-        private ExpressionType parseExpressionType(char c)
+        private static ExpressionType parseExpressionType(char c)
         {
             return c switch
             {
