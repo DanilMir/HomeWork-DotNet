@@ -9,6 +9,7 @@ namespace HW9.Controllers
         [HttpGet, Route("calc")]
         public IActionResult Calc(string expr)
         {
+            expr = expr.Replace(" ", "+");
             var temp = Parser.Parse(expr);
             var visit = new Visitor().Visit(temp);
             var t = (int) (new Visitor().Visit(temp) as ConstantExpression)?.Value!;
