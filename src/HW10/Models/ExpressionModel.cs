@@ -1,10 +1,12 @@
-﻿namespace HW10.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HW10.Models
 {
     public class ExpressionModel
     {
-        public int Id { get; set; }
-        public int Value1 { get; set; }
-        public int Value2 { get; set; }
-        public int Operation { get; set; }
+        [Key]
+        public string Expression { get; set; }
+        [Required]
+        public int Value { get; set; }
     }
 }
