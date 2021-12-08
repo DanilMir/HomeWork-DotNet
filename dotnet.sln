@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW10", "src\HW10\HW10.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW10.Tests", "src\HW10.Tests\HW10.Tests.csproj", "{DBE56C93-3BF2-4277-BCFC-4F81DC585B1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW11", "src\HW11\HW11.csproj", "{F0D91305-752A-45F4-9769-CD8CB7D04AA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{DBE56C93-3BF2-4277-BCFC-4F81DC585B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBE56C93-3BF2-4277-BCFC-4F81DC585B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE56C93-3BF2-4277-BCFC-4F81DC585B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0D91305-752A-45F4-9769-CD8CB7D04AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0D91305-752A-45F4-9769-CD8CB7D04AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0D91305-752A-45F4-9769-CD8CB7D04AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0D91305-752A-45F4-9769-CD8CB7D04AA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
