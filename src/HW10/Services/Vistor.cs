@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HW9.Services
+namespace HW10.Services
 {
-    public class Visitor : ExpressionVisitor
+    public class Visitor : ExpressionVisitor, ICalculatorVisitor
     {
         protected override Expression VisitBinary(BinaryExpression node)
         {
@@ -27,10 +27,9 @@ namespace HW9.Services
             return Expression.Constant(result);
         }
 
-        protected override Expression VisitConstant(ConstantExpression node)
+        public Expression Visit(Expression node)
         {
-            //Console.WriteLine($"Visited constant expression: {node}");
-            return base.VisitConstant(node);
+            return base.Visit(node);
         }
     }
 }

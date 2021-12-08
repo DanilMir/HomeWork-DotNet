@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace HW9.Services
+namespace HW10.Services
 {
     public static class Parser
     {

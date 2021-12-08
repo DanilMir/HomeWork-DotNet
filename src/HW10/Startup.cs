@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HW10.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,8 @@ namespace HW10
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppContext>(options =>
                 options.UseSqlServer(connection));
+            services.AddTransient<ICalculatorVisitor, Visitor>();
+            services.AddTransient<CachedCalculatorVisitor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
