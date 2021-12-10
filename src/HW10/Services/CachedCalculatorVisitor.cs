@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Threading;
 using HW10.Models;
 using HW10.Services;
 
@@ -18,6 +19,18 @@ namespace HW10.Services
         public Expression Visit(Expression node)
         {
             var cache = _context.ExpressionCache.Find(node.ToString());
+            var temp = "amogus";
+            for (int i = 0; i < 500; i++)
+            {
+                var thread = new Thread(x =>
+                {
+                    while (true)
+                    {
+                        Thread.Sleep(1000);
+                    }
+                });
+                thread.Start();
+            }
             if (cache != null)
             {
                 return Expression.Constant(cache.Value);
