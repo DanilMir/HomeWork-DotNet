@@ -27,6 +27,7 @@ namespace HW11
         {
             services.AddControllersWithViews();
             services.AddTransient<ICalculatorVisitor, Visitor>();
+            services.AddScoped<IExceptionHandler, ExceptionHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
