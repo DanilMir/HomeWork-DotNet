@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using HW10.Services;
 using HW11.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +6,9 @@ namespace HW11.Controllers
 {
     public class CalculatorController : Controller
     {
-        private Visitor _visitor;
+        private ICalculatorVisitor _visitor;
 
-        public CalculatorController(Visitor visitor)
+        public CalculatorController(ICalculatorVisitor visitor)
         {
             _visitor = visitor;
         }
