@@ -7,7 +7,12 @@ namespace HW11.Services
 {
     public class Visitor : ExpressionVisitor, ICalculatorVisitor
     {
-        protected override Expression VisitBinary(BinaryExpression node)
+        public Expression Visit(Expression node)
+        {
+            return Visit((dynamic) node);
+        }
+
+        private Expression Visit(BinaryExpression node)
         {
             var left = Task.Run(() => Visit(node.Left));
             var right = Task.Run(() => Visit(node.Right));
@@ -26,11 +31,6 @@ namespace HW11.Services
             };
 
             return Expression.Constant(result);
-        }
-
-        public Expression Visit(Expression node)
-        {
-            return base.Visit(node);
         }
     }
 }
