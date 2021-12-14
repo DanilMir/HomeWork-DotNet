@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
@@ -12,89 +13,145 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace WebApplication3
 {
-    public static class HtmlExtensions
+    public static class FormHelper
     {
-        public static string GetString(this IHtmlContent content)
+        public static IHtmlContent MyEditorForModel(this IHtmlHelper htmlHelper)
         {
-            using (var writer = new System.IO.StringWriter())
+            var model = htmlHelper.ViewData.ModelMetadata.ModelType;
+            var properties = model.GetProperties();
+            var result = properties.Select(x => x.MakeTitleAndInput(htmlHelper.ViewData.Model));
+            return new HtmlString(string.Join(" ", result));
+        }
+
+        private static string MakeTitleAndInput(this PropertyInfo property, object model)
+        {
+           return property.MakeTitle() + property.MakeInputAndSpan(model);
+        }
+
+        private static string MakeTitle(this PropertyInfo property)
+        {
+            var div = new TagBuilder("div")
             {
-                content.WriteTo(writer, HtmlEncoder.Default);
-                return writer.ToString();
-            }
-        }
+                Attributes =
+                {
+                    {"class", "editor-label"}
+                }
+            };
 
-        public static HtmlString EditorForModelNew(this IHtmlHelper htmlHelper)
-        {
-            var type = htmlHelper.ViewData.ModelMetadata.ModelType;
-            var properties = type.GetProperties();
-            string temp = "";
-            var model = type.GetConstructor(Type.EmptyTypes)?.Invoke(Array.Empty<object>());
-            var formHelper = new FormHelper(htmlHelper, model);
-            foreach (var varInfo in properties)
+            var label = new TagBuilder("label")
             {
-                temp += formHelper.GenerateHeader(varInfo);
-                temp += formHelper.GenerateBody(varInfo);
+                Attributes =
+                {
+                    {"for", property.Name}
+                }
+            };
+            var name = property.GetCustomAttribute<DisplayAttribute>() is null ?
+
+                CamelCase(property.Name) : property.GetCustomAttribute<DisplayAttribute>()?.Name;
+            return div.InnerHtml.AppendHtml(label).Append(name).GetString();
+        }
+
+        private static string CamelCase(string text) =>
+            Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+
+
+           public static string MakeEnumInput(this PropertyInfo property, object model)
+           {
+               string list = $"Html.GetEnumSelectList<{property.PropertyType}>()";
+               var select = new TagBuilder("select")
+               {
+                    Attributes =
+                    {
+                        {"asp-for", property.Name},
+                        {"asp-items", list},
+                        {"class", "form-control"}
+                    }
+               };
+
+               return select.GetString();
+           }
+
+           private static string MakeInputAndSpan(this PropertyInfo property, object model)
+        {
+            var value = model is not null ? 
+                property.GetValue(model)?.ToString() : "";
+            
+            var div = new TagBuilder("div")
+            {
+                Attributes =
+                {
+                    {"class", "editor-field"}
+                }
+            };
+            
+            var typeTextOrNumber = property.PropertyType == typeof(int) ? "number" : "text";
+
+            if (property.PropertyType.IsEnum)
+            {
+                var select = new TagBuilder("select")
+                {
+                    Attributes =
+                    {
+                        {"id", property.Name},
+                       {"name", property.Name}
+                    }
+                };
+
+                var enumCount = Enum.GetNames(property.PropertyType).Length;
+                for (var i = 0; i < enumCount; i++)
+                {
+                    var option = new TagBuilder("option")
+                    {
+                        Attributes =
+                        {
+                            {"value", $"{i}"}
+                        }
+                    };
+
+                    var t = property.PropertyType.GetEnumNames()[i];
+
+                    option.InnerHtml.Append(t);
+                    select.InnerHtml.AppendHtml(option);
+                }
+
+                div.InnerHtml.AppendHtml(select);
+                return div.GetString();
             }
 
-            return new HtmlString(temp);
+            var input = new TagBuilder("input")
+            {
+                Attributes =
+                {
+                    {"class", "text-box single-line"},
+                    {"data-val", "true"},
+                    {"id", property.Name},
+                    {"name", property.Name},
+                    {"type", typeTextOrNumber}, {"value", value}
+                }
+            };
+                
+            div.InnerHtml.AppendHtml(input);
+            var span = property.MakeSpan(model);
+            div.InnerHtml.AppendHtml(span);
+            return div.GetString();
         }
-    }
 
-    public class FormHelper
-    {
-        
-        private IHtmlHelper _htmlHelper;
-        private object _model;
-        
-        public FormHelper(IHtmlHelper htmlHelper, object model)
+           private static string GetString(this IHtmlContent content)
         {
-            _htmlHelper = htmlHelper;
-            _model = model;
+            using var writer = new System.IO.StringWriter();
+            content.WriteTo(writer, HtmlEncoder.Default);
+            return writer.ToString();
         }
 
-        private bool IsAttributeExist<T>(MemberInfo prop) => Attribute.IsDefined(prop, typeof(T));
-        
-        public string GenerateHeader(PropertyInfo prop)
+           private static IHtmlContent MakeSpan(this PropertyInfo property, object model)
         {
-            var name = IsAttributeExist<DisplayAttribute>(prop)
-                ? ((DisplayAttribute) prop.GetCustomAttribute(typeof(DisplayAttribute)))?.Name :
-                NameFromCamelCase(prop.Name);
-            return $"<div class=\"editor-label\"><label for=\"{prop.Name}\">{name}</label></div>";
+            if (model is null) return null;
+            var attrs = property.GetCustomAttributes<ValidationAttribute>();
+
+            return (from attr in attrs where !attr.IsValid(property.GetValue(model)) 
+                let span = new TagBuilder("span") 
+                    {Attributes = {{"class", "field-validation-valid"}, {"data-valmsg-for", property.Name}, {"data-valmsg-replace", "true"}}}
+                select span.InnerHtml.Append(attr.ErrorMessage ?? attr.FormatErrorMessage(property.Name))).FirstOrDefault();
         }
-
-        public string GenerateField(PropertyInfo prop) => $"<div class=\"editor-field\">{GenerateBody(prop)}</div>";
-
-        private string GenerateSpan(PropertyInfo prop)
-        {
-            var res =
-                $"<span class=\"field-validation-error\" data-valmsg-for=\"{prop.Name}\" data-valmsg-replace=\"true\">";
-            var attr = (ValidationAttribute) prop.GetCustomAttribute(typeof(ValidationAttribute));
-            res += !attr?.IsValid(prop.GetValue(_model))! ?? false
-                ? attr.ErrorMessage! ?? attr.FormatErrorMessage(prop.Name)
-                : string.Empty;
-            res += "</span>";
-            return res;
-        }
-
-        public string GenerateBody(PropertyInfo prop)
-        {
-            var res = "";
-            res = prop.PropertyType.IsEnum ? 
-                _htmlHelper.DropDownList(prop.Name, _htmlHelper.GetEnumSelectList(prop.PropertyType)).GetString() :
-                GenerateInput(prop);
-            res += GenerateSpan(prop);
-            return res;
-        }
-
-        private string GenerateInput(PropertyInfo prop)
-        {
-            var res = prop.PropertyType == typeof(string) ? 
-                $"<input class=\"text-box single-line\" type=\"text\" name=\"{prop.Name}\">" : 
-                $"<input class=\"text-box single-line\" type=\"number\" name=\"{prop.Name}\">";
-
-            return res;
-        }
-
-        private string NameFromCamelCase(string str) => Regex.Replace(str, "([A-Z])", " $1").Trim();
     }
 }
