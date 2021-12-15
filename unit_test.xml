@@ -1,14 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Root CoveredStatements="0" TotalStatements="0" CoveragePercent="0" ReportType="DetailedXml" DotCoverVersion="2021.3">
+<Root CoveredStatements="48" TotalStatements="48" CoveragePercent="100" ReportType="DetailedXml" DotCoverVersion="2021.2.2">
   <FileIndices>
-    <File Index="1" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\Controllers\HomeController.cs" ChecksumAlgorithm="SHA256" Checksum="73730B3C010FB0889BD90622A24708532B7B11FB0A147B9CBC8E7639C101E668" />
-    <File Index="2" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\FormHelper.cs" ChecksumAlgorithm="SHA256" Checksum="7D623E077A5F11AA004AF60FDC31C4DD966767514139047551AC522B41AE1775" />
-    <File Index="3" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\Models\ErrorViewModel.cs" ChecksumAlgorithm="SHA256" Checksum="09E7D56980AB233A715FFFB9DCBC6509D88FB33ADC6BCD231C498316458D8FF8" />
-    <File Index="4" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\Models\UserProfile.cs" ChecksumAlgorithm="SHA256" Checksum="7B11918AAC277150265BD7D9A70088A4715E8636A2FE3C4CB980D99E9BA707B0" />
-    <File Index="5" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\Program.cs" ChecksumAlgorithm="SHA256" Checksum="1A56E815CE168AB972F821243272A8E469F34E7B47E5A75923D51C4E1458830C" />
-    <File Index="6" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\Startup.cs" ChecksumAlgorithm="SHA256" Checksum="82D3E6A2BF3C9CFC2466215AB49477EFE68958CA52BD0E7DA0A24187631C27D4" />
-    <File Index="7" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" ChecksumAlgorithm="SHA256" Checksum="3DAB221DDB7A8D7D050731DC8D289DF26D56F7DABEB91B3D7F96E5CB6C994C29" />
-    <File Index="8" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\obj\Debug\net5.0\WebApplication3.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="05403EFBB8202BA0847F148EF0B4142DADF3AE8668B6A531D6164420D1C3C240" />
-    <File Index="9" Name="C:\Users\hb\HomeWork-DotNet\src\HW7\obj\Debug\net5.0\WebApplication3.RazorAssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="318D610502DA117713851E23B6435D3F592EB0A65CC164F9B96851504CEE2157" />
+    <File Index="16" Name="C:\Users\hb\HomeWork-DotNet\src\HW8.Tests\obj\Debug\net5.0\HW8.Tests.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="95B13CC94DC0A878FE7E7F7FE9B224BB9D7C29B2BFF4DCD842719C9A21A69C73" />
+    <File Index="7" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\obj\Debug\net5.0\HW8.RazorAssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="94B491851B5530D692BA999549C2E0FBFDF633B4D8A9364451D1F5A513F16F50" />
+    <File Index="6" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\obj\Debug\net5.0\HW8.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="8738AA3A41724A94DCFC485444B4740EA87FA48ABE690C667C2D3BC377E5F844" />
+    <File Index="5" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" ChecksumAlgorithm="SHA256" Checksum="3DAB221DDB7A8D7D050731DC8D289DF26D56F7DABEB91B3D7F96E5CB6C994C29" />
+    <File Index="4" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Startup.cs" ChecksumAlgorithm="SHA256" Checksum="4BA3D231F413DA4D1CBD9A9818B2734A183DB3EA9ACF02F86B8E968C98DD2879" />
+    <File Index="3" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Services\Parser.cs" ChecksumAlgorithm="SHA256" Checksum="DB67E1B4AE43736AA23410AD50B8E432A8A7115D6D72E19955F6DB54BFC70230" />
+    <File Index="2" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Services\IParser.cs" ChecksumAlgorithm="SHA256" Checksum="AC64F7322FE7EB9F928951CA8339D0670580CA22A5DE951D0F23DAAB9D4C4FE8" />
+    <File Index="1" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Services\ICalculator.cs" ChecksumAlgorithm="SHA256" Checksum="1AA268CC02EBD033BCAB0BC352A33496C0D95ECE367C15C919064ED0D0DD3013" />
+    <File Index="8" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Services\Calculator.cs" ChecksumAlgorithm="SHA256" Checksum="5628A8B9BF695599580FBBB370B05FB153DFDD8A5BF77F3206F275D312D2D14D" />
+    <File Index="9" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Program.cs" ChecksumAlgorithm="SHA256" Checksum="A9E39789E9697FC8F05583823F6F361CEA315BD68EFEDDFB1F306B2F27EAA969" />
+    <File Index="10" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Models\ErrorViewModel.cs" ChecksumAlgorithm="SHA256" Checksum="6816063C56878AC954F8CC439D9F24771E0C8281D4208B72AB89F5701E99FBFB" />
+    <File Index="11" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Controllers\HomeController.cs" ChecksumAlgorithm="SHA256" Checksum="60AD85B81FA48DE299FFE1313A3A7696A2D032DE0CCA0FAB19263D27A009AB47" />
+    <File Index="12" Name="C:\Users\hb\HomeWork-DotNet\src\HW8\Controllers\CalculateController.cs" ChecksumAlgorithm="SHA256" Checksum="3D31A6A99101E20CFD85A5D5A11BECE3A70EADDD9FC28D8AC41903AB1C6F01ED" />
+    <File Index="15" Name="C:\Users\hb\HomeWork-DotNet\src\HW8.Tests\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" ChecksumAlgorithm="SHA256" Checksum="3DAB221DDB7A8D7D050731DC8D289DF26D56F7DABEB91B3D7F96E5CB6C994C29" />
+    <File Index="14" Name="C:\Users\hb\.nuget\packages\microsoft.net.test.sdk\16.9.4\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs" ChecksumAlgorithm="SHA256" Checksum="D66F12F9433816A8C7DC1B2ACB9E1010F5418F5EEB51E80F1DF57AA1DCAB8D8A" />
+    <File Index="13" Name="C:\Users\hb\HomeWork-DotNet\src\HW8.Tests\UnitTest1.cs" ChecksumAlgorithm="SHA256" Checksum="90C5C90A0F6B643AECE60FF1D4AA5D2862FA0442DAB47B0ABE8294C91A6FB274" />
   </FileIndices>
+  <Assembly Name="HW8" CoveredStatements="28" TotalStatements="28" CoveragePercent="100">
+    <Namespace Name="HW8" CoveredStatements="13" TotalStatements="13" CoveragePercent="100">
+      <Type Name="Program" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
+        <Type Name="&lt;&gt;c" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+          <Method Name="&lt;CreateHostBuilder&gt;b__1_0(Microsoft.AspNetCore.Hosting.IWebHostBuilder):System.Void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <Statement FileIndex="9" Line="21" Column="57" EndLine="21" EndColumn="58" Covered="True" />
+            <Statement FileIndex="9" Line="21" Column="59" EndLine="21" EndColumn="92" Covered="True" />
+            <Statement FileIndex="9" Line="21" Column="93" EndLine="21" EndColumn="94" Covered="True" />
+          </Method>
+        </Type>
+        <Method Name="CreateHostBuilder(System.String[]):Microsoft.Extensions.Hosting.IHostBuilder" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
+          <Statement FileIndex="9" Line="20" Column="13" EndLine="21" EndColumn="95" Covered="True" />
+        </Method>
+      </Type>
+      <Type Name="Startup" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
+        <Method Name=".ctor(Microsoft.Extensions.Configuration.IConfiguration):System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
+          <Statement FileIndex="4" Line="17" Column="9" EndLine="17" EndColumn="53" Covered="True" />
+          <Statement FileIndex="4" Line="18" Column="9" EndLine="18" EndColumn="10" Covered="True" />
+          <Statement FileIndex="4" Line="19" Column="13" EndLine="19" EndColumn="43" Covered="True" />
+          <Statement FileIndex="4" Line="20" Column="9" EndLine="20" EndColumn="10" Covered="True" />
+        </Method>
+        <Method Name="ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection):System.Void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
+          <Statement FileIndex="4" Line="26" Column="9" EndLine="26" EndColumn="10" Covered="True" />
+          <Statement FileIndex="4" Line="27" Column="13" EndLine="27" EndColumn="48" Covered="True" />
+          <Statement FileIndex="4" Line="28" Column="13" EndLine="28" EndColumn="62" Covered="True" />
+          <Statement FileIndex="4" Line="29" Column="13" EndLine="29" EndColumn="54" Covered="True" />
+          <Statement FileIndex="4" Line="30" Column="9" EndLine="30" EndColumn="10" Covered="True" />
+        </Method>
+      </Type>
+    </Namespace>
+    <Namespace Name="HW8.Services" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
+      <Type Name="Parser" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
+        <Method Name=".cctor():System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
+          <Statement FileIndex="3" Line="8" Column="9" EndLine="15" EndColumn="11" Covered="True" />
+        </Method>
+        <Method Name="TryParseArguments(System.String[],System.Int32,System.String,System.Int32):System.Int32" CoveredStatements="14" TotalStatements="14" CoveragePercent="100">
+          <Statement FileIndex="3" Line="18" Column="9" EndLine="18" EndColumn="10" Covered="True" />
+          <Statement FileIndex="3" Line="19" Column="13" EndLine="19" EndColumn="61" Covered="True" />
+          <Statement FileIndex="3" Line="20" Column="13" EndLine="20" EndColumn="33" Covered="True" />
+          <Statement FileIndex="3" Line="21" Column="13" EndLine="21" EndColumn="61" Covered="True" />
+          <Statement FileIndex="3" Line="23" Column="13" EndLine="23" EndColumn="42" Covered="True" />
+          <Statement FileIndex="3" Line="24" Column="13" EndLine="24" EndColumn="14" Covered="True" />
+          <Statement FileIndex="3" Line="25" Column="17" EndLine="25" EndColumn="26" Covered="True" />
+          <Statement FileIndex="3" Line="28" Column="13" EndLine="28" EndColumn="58" Covered="True" />
+          <Statement FileIndex="3" Line="29" Column="13" EndLine="29" EndColumn="14" Covered="True" />
+          <Statement FileIndex="3" Line="30" Column="17" EndLine="30" EndColumn="26" Covered="True" />
+          <Statement FileIndex="3" Line="33" Column="13" EndLine="33" EndColumn="47" Covered="True" />
+          <Statement FileIndex="3" Line="34" Column="17" EndLine="34" EndColumn="26" Covered="True" />
+          <Statement FileIndex="3" Line="35" Column="13" EndLine="35" EndColumn="22" Covered="True" />
+          <Statement FileIndex="3" Line="36" Column="9" EndLine="36" EndColumn="10" Covered="True" />
+        </Method>
+      </Type>
+    </Namespace>
+  </Assembly>
+  <Assembly Name="HW8.Tests" CoveredStatements="20" TotalStatements="20" CoveragePercent="100">
+    <Namespace Name="HW8.Tests" CoveredStatements="20" TotalStatements="20" CoveragePercent="100">
+      <Type Name="BasicTests" CoveredStatements="20" TotalStatements="20" CoveragePercent="100">
+        <Type Name="&lt;NegativeTests&gt;d__3" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+          <Method Name="MoveNext():System.Void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <Statement FileIndex="13" Line="47" Column="9" EndLine="47" EndColumn="10" Covered="True" />
+            <Statement FileIndex="13" Line="49" Column="13" EndLine="49" EndColumn="50" Covered="True" />
+            <Statement FileIndex="13" Line="50" Column="13" EndLine="50" EndColumn="80" Covered="True" />
+            <Statement FileIndex="13" Line="53" Column="13" EndLine="53" EndColumn="55" Covered="True" />
+            <Statement FileIndex="13" Line="56" Column="13" EndLine="56" EndColumn="75" Covered="True" />
+            <Statement FileIndex="13" Line="57" Column="13" EndLine="57" EndColumn="69" Covered="True" />
+            <Statement FileIndex="13" Line="58" Column="13" EndLine="58" EndColumn="49" Covered="True" />
+            <Statement FileIndex="13" Line="59" Column="9" EndLine="59" EndColumn="10" Covered="True" />
+          </Method>
+        </Type>
+        <Type Name="&lt;PositiveTests&gt;d__2" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+          <Method Name="MoveNext():System.Void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <Statement FileIndex="13" Line="26" Column="9" EndLine="26" EndColumn="10" Covered="True" />
+            <Statement FileIndex="13" Line="28" Column="13" EndLine="28" EndColumn="50" Covered="True" />
+            <Statement FileIndex="13" Line="30" Column="13" EndLine="30" EndColumn="80" Covered="True" />
+            <Statement FileIndex="13" Line="33" Column="13" EndLine="33" EndColumn="55" Covered="True" />
+            <Statement FileIndex="13" Line="36" Column="13" EndLine="36" EndColumn="48" Covered="True" />
+            <Statement FileIndex="13" Line="37" Column="13" EndLine="37" EndColumn="69" Covered="True" />
+            <Statement FileIndex="13" Line="38" Column="13" EndLine="38" EndColumn="91" Covered="True" />
+            <Statement FileIndex="13" Line="39" Column="9" EndLine="39" EndColumn="10" Covered="True" />
+          </Method>
+        </Type>
+        <Method Name=".ctor(Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory&lt;HW8.Startup&gt;):System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
+          <Statement FileIndex="13" Line="15" Column="9" EndLine="15" EndColumn="66" Covered="True" />
+          <Statement FileIndex="13" Line="16" Column="9" EndLine="16" EndColumn="10" Covered="True" />
+          <Statement FileIndex="13" Line="17" Column="13" EndLine="17" EndColumn="32" Covered="True" />
+          <Statement FileIndex="13" Line="18" Column="9" EndLine="18" EndColumn="10" Covered="True" />
+        </Method>
+      </Type>
+    </Namespace>
+  </Assembly>
 </Root>
