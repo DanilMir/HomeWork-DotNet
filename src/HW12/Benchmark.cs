@@ -11,48 +11,50 @@ namespace HW12
     [MaxColumn]
     public class Benchmark
     {
-        private HttpClient _csharpClient;
-        private HttpClient _fsharpClient;
+            private HttpClient _clientCSharp;
+            private HttpClient _clientFSharp;
         
-        [ParamsSource(nameof(ArgumentsParams))]
-        public ValueTuple<string, string, string, string> Arguments { get; set; }
+            private const string FSharpUrl = "https://localhost:5001/calculate";
+            private const string CSharpUrl = "https://localhost:5001/calculate/calc";
 
-        public string CSharpUrl;
-        public string FSharpUrl;
-
-        public IEnumerable<ValueTuple<string, string, string, string>> ArgumentsParams =>
-            new[]
+            [GlobalSetup]
+            public void GlobalSetUp()
             {
-                ("23", "sum", "121", "+"),
-                ("78", "dif", "23", "-"),
-                ("114", "mult", "121", "*"),
-                ("256", "div", "78", "/")
-            };
+                _clientCSharp = new CustomWebApplicationFactory<HW8.Startup>().CreateDefaultClient();
+                _clientFSharp = new CustomWebApplicationFactory<HW6.Startup>().CreateDefaultClient();
+            }
 
-        [GlobalSetup]
-        public void GlobalSetUp()
-        {
-            _csharpClient = new CustomWebApplicationFactory<HW8.Startup>().CreateDefaultClient();
-            _fsharpClient = new CustomWebApplicationFactory<HW6.Startup>().CreateDefaultClient();
-
-            CSharpUrl =
-                $"https://localhost:5001/calculate/calc" +
-                $"?value1={Arguments.Item1}&operation={Arguments.Item4}&value2={Arguments.Item3}";
-            FSharpUrl = 
-                $"https://localhost:5001/calculate" +
-                $"?V1={Arguments.Item1}&Operation={Arguments.Item2}&V2={Arguments.Item3}";
-        }
-
-        [Benchmark]
-        public async Task FSharp()
-        {
-            await _fsharpClient.GetAsync(CSharpUrl);
-        }
-
-        [Benchmark]
-        public async Task CSharp()
-        {
-            await _csharpClient.GetAsync(FSharpUrl);
-        }
+            [Benchmark(Description = "F# 2+2")]
+            public async Task PlusFSharp() 
+                => await _clientFSharp.GetAsync(FSharpUrl + "?V1=2&Operation=sum&V2=2");
+        
+            [Benchmark(Description = "C# 2+2")]
+            public async Task PlusCSharp() 
+                => await _clientCSharp.GetAsync(CSharpUrl + 
+                                                "?value1=2&operation=+&value2=2");
+            
+            [Benchmark(Description = "F# 12-2")]
+            public async Task MinusFSharp() 
+                => await _clientFSharp.GetAsync(FSharpUrl + "?V1=12&Operation=dif&V2=2");
+        
+            [Benchmark(Description = "C# 12-2")]
+            public async Task MinusCSharp() 
+                => await _clientCSharp.GetAsync(CSharpUrl + "?value1=12&operation=-&value2=2");
+        
+            [Benchmark(Description = "F# 12*2")]
+            public async Task MultiplicationFSharp() 
+                => await _clientFSharp.GetAsync(FSharpUrl + "?V1=12&Operation=mult&V2=2");
+        
+            [Benchmark(Description = "C# 12*2")]
+            public async Task MultiplicationCSharp() 
+                => await _clientCSharp.GetAsync(CSharpUrl + "?value1=12&operation=*&value2=2");
+            
+            [Benchmark(Description = "F# 21/3")]
+            public async Task DivisionFSharp() 
+                => await _clientFSharp.GetAsync(FSharpUrl + "?V1=21&Operation=div&V2=3");
+        
+            [Benchmark(Description = "C# 21/3")]
+            public async Task DivisionCSharp() 
+                => await _clientCSharp.GetAsync(CSharpUrl + "?value1=21&operation=/&value2=3");
     }
 }
