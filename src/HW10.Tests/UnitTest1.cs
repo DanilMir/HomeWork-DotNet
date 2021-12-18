@@ -14,17 +14,23 @@ namespace HW10.Tests
     
     public class UnitTest1 : IClassFixture<WebApplicationFactory<Startup>>
     {
-        private readonly WebApplicationFactory<Startup> _factory;
+        //private readonly WebApplicationFactory<Startup> _factory;
 
-        public UnitTest1(WebApplicationFactory<Startup> factor)
+        private static WebApplicationFactory<Startup> CreateHost()
         {
-            _factory = factor.WithWebHostBuilder(builder =>
-                builder.ConfigureServices(services =>
-                    services
-                        .AddDbContext<HW10.Models.AppContext>(options =>
-                            options
-                                .UseInMemoryDatabase("dotnetExpr"))));
+            return new WebApplicationFactory<Startup>()
+                .WithWebHostBuilder(builder =>
+                    builder.ConfigureServices(services =>
+                        services
+                            .AddDbContext<HW10.Models.AppContext>(options =>
+                                options
+                                    .UseInMemoryDatabase("dotnetExpr"))));
         }
+        
+        // public UnitTest1(WebApplicationFactory<Startup> factor)
+        // {
+        //     _factory = factor;
+        // }
 
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
 
@@ -33,7 +39,8 @@ namespace HW10.Tests
         [InlineData("1/(2+3)", 1, 0)]
         public async Task TimeTest(string expression, int timeInSeconds, decimal answer)
         {
-            var client = _factory.CreateClient();
+            using var host = CreateHost();
+            using var client = host.CreateClient();
             var watch = new Stopwatch();
             watch.Start();
             var response = await client.GetAsync($"{ResponseBody}{expression}");
