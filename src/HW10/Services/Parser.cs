@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Text;
 
 namespace HW10.Services
 {
@@ -34,11 +35,28 @@ namespace HW10.Services
                 }
                 return Expression.Constant(int.Parse(s)); // mb problems
             }
-            return Expression.MakeBinary(parseExpressionType(s[operatorIndex]), Parse(s[..operatorIndex]),
-                Parse(s[(operatorIndex + 1)..]));
+            
+            var right = Parse(s[operatorIndex] == '-' ? Negative(s[(operatorIndex + 1)..]) :
+                s[(operatorIndex + 1)..]);
+            return Expression.MakeBinary(ParseExpressionType(s[operatorIndex]), Parse(s[..operatorIndex]),
+                right);
         }
 
-        private static ExpressionType parseExpressionType(char c)
+        private static string Negative(string expression)
+        {
+            var sb = new StringBuilder(expression);
+            for (var i = 0; i < sb.Length; i++)
+            {
+                if (sb[i] is '-')
+                    sb[i] = '+';
+                if (sb[i] is '+')
+                    sb[i] = '-';
+            }
+
+            return sb.ToString();
+        }
+        
+        private static ExpressionType ParseExpressionType(char c)
         {
             return c switch
             {
