@@ -21,7 +21,7 @@ namespace HW9.Tests
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
 
         [Theory, InlineData("1+2+3+4+5", 3, 15), InlineData("2/2", 2, 1), InlineData("(2+1)/2", 3, 1)]
-        [InlineData("(2+3)/12*7+8*9", 5, 72), InlineData("1-2+3", 3, 2)]
+        [InlineData("(2+3)/12*7+8*9", 6, 72), InlineData("1-2+3", 3, 2)]
         [InlineData("1/(2+3)", 3, 0)]
         public async Task TimeTest(string expression, int timeInSeconds, decimal answer)
         {
