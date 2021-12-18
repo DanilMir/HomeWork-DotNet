@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Root CoveredStatements="48" TotalStatements="172" CoveragePercent="28" ReportType="DetailedXml" DotCoverVersion="2021.3">
+<Root CoveredStatements="36" TotalStatements="160" CoveragePercent="23" ReportType="DetailedXml" DotCoverVersion="2021.3">
   <FileIndices>
     <File Index="1" Name="C:\Users\hb\HomeWork-DotNet\src\HW12\Benchmark.cs" ChecksumAlgorithm="SHA256" Checksum="A1DC0E5446A408F6511FEEE60C38F8F8549B582D3410307A1A1E4B1B58E72B9D" />
     <File Index="2" Name="C:\Users\hb\HomeWork-DotNet\src\HW12\CustomWebApplicationFactory.cs" ChecksumAlgorithm="SHA256" Checksum="06343F120ABFBBA7A40EAD9104292A96F22773D0F9B26F928292BCDF3EC67251" />
@@ -396,7 +396,7 @@
       </Type>
     </Namespace>
   </Assembly>
-  <Assembly Name="HW9" CoveredStatements="36" TotalStatements="36" CoveragePercent="100">
+  <Assembly Name="HW9" CoveredStatements="24" TotalStatements="24" CoveragePercent="100">
     <Namespace Name="HW9" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
       <Type Name="Program" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
         <Type Name="&lt;&gt;c" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
@@ -421,45 +421,31 @@
         </Method>
       </Type>
     </Namespace>
-    <Namespace Name="HW9.Controllers" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-      <Type Name="CalculatorController" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-        <Method Name="Calc(System.String):Microsoft.AspNetCore.Mvc.IActionResult" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="32" Line="12" Column="13" EndLine="12" EndColumn="43" Covered="True" />
-          <Statement FileIndex="32" Line="13" Column="13" EndLine="13" EndColumn="43" Covered="True" />
-          <Statement FileIndex="32" Line="14" Column="13" EndLine="14" EndColumn="51" Covered="True" />
-          <Statement FileIndex="32" Line="15" Column="13" EndLine="15" EndColumn="85" Covered="True" />
-          <Statement FileIndex="32" Line="16" Column="13" EndLine="16" EndColumn="26" Covered="True" />
+    <Namespace Name="HW9.Services" CoveredStatements="16" TotalStatements="16" CoveragePercent="100">
+      <Type Name="Visitor" CoveredStatements="16" TotalStatements="16" CoveragePercent="100">
+        <Type Name="&lt;&gt;c__DisplayClass0_0" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <Method Name="&lt;VisitBinary&gt;b__0():System.Linq.Expressions.Expression" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
+            <Statement FileIndex="27" Line="11" Column="39" EndLine="11" EndColumn="55" Covered="True" />
+          </Method>
+          <Method Name="&lt;VisitBinary&gt;b__1():System.Linq.Expressions.Expression" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
+            <Statement FileIndex="27" Line="12" Column="40" EndLine="12" EndColumn="57" Covered="True" />
+          </Method>
+        </Type>
+        <Method Name="VisitBinary(System.Linq.Expressions.BinaryExpression):System.Linq.Expressions.Expression" CoveredStatements="13" TotalStatements="13" CoveragePercent="100">
+          <Statement FileIndex="27" Line="11" Column="13" EndLine="11" EndColumn="57" Covered="True" />
+          <Statement FileIndex="27" Line="12" Column="13" EndLine="12" EndColumn="59" Covered="True" />
+          <Statement FileIndex="27" Line="14" Column="13" EndLine="14" EndColumn="32" Covered="True" />
+          <Statement FileIndex="27" Line="15" Column="13" EndLine="15" EndColumn="47" Covered="True" />
+          <Statement FileIndex="27" Line="16" Column="13" EndLine="16" EndColumn="22" Covered="True" />
+          <Statement FileIndex="27" Line="17" Column="13" EndLine="17" EndColumn="76" Covered="True" />
+          <Statement FileIndex="27" Line="18" Column="13" EndLine="18" EndColumn="77" Covered="True" />
+          <Statement FileIndex="27" Line="19" Column="13" EndLine="25" EndColumn="15" Covered="True" />
+          <Statement FileIndex="27" Line="21" Column="39" EndLine="21" EndColumn="57" Covered="True" />
+          <Statement FileIndex="27" Line="22" Column="44" EndLine="22" EndColumn="62" Covered="True" />
+          <Statement FileIndex="27" Line="23" Column="44" EndLine="23" EndColumn="62" Covered="True" />
+          <Statement FileIndex="27" Line="24" Column="42" EndLine="24" EndColumn="60" Covered="True" />
+          <Statement FileIndex="27" Line="27" Column="13" EndLine="27" EndColumn="48" Covered="True" />
         </Method>
-      </Type>
-    </Namespace>
-    <Namespace Name="HW9.Services" CoveredStatements="23" TotalStatements="23" CoveragePercent="100">
-      <Type Name="Parser" CoveredStatements="22" TotalStatements="22" CoveragePercent="100">
-        <Method Name="Parse(System.String):System.Linq.Expressions.Expression" CoveredStatements="22" TotalStatements="22" CoveragePercent="100">
-          <Statement FileIndex="28" Line="11" Column="13" EndLine="11" EndColumn="34" Covered="True" />
-          <Statement FileIndex="28" Line="12" Column="13" EndLine="12" EndColumn="36" Covered="True" />
-          <Statement FileIndex="28" Line="13" Column="18" EndLine="13" EndColumn="27" Covered="True" />
-          <Statement FileIndex="28" Line="15" Column="17" EndLine="15" EndColumn="31" Covered="True" />
-          <Statement FileIndex="28" Line="16" Column="17" EndLine="16" EndColumn="30" Covered="True" />
-          <Statement FileIndex="28" Line="16" Column="31" EndLine="16" EndColumn="46" Covered="True" />
-          <Statement FileIndex="28" Line="17" Column="22" EndLine="17" EndColumn="35" Covered="True" />
-          <Statement FileIndex="28" Line="17" Column="36" EndLine="17" EndColumn="51" Covered="True" />
-          <Statement FileIndex="28" Line="18" Column="22" EndLine="18" EndColumn="65" Covered="True" />
-          <Statement FileIndex="28" Line="20" Column="21" EndLine="20" EndColumn="39" Covered="True" />
-          <Statement FileIndex="28" Line="21" Column="21" EndLine="21" EndColumn="27" Covered="True" />
-          <Statement FileIndex="28" Line="23" Column="22" EndLine="23" EndColumn="86" Covered="True" />
-          <Statement FileIndex="28" Line="25" Column="21" EndLine="25" EndColumn="39" Covered="True" />
-          <Statement FileIndex="28" Line="13" Column="43" EndLine="13" EndColumn="46" Covered="True" />
-          <Statement FileIndex="28" Line="13" Column="29" EndLine="13" EndColumn="41" Covered="True" />
-          <Statement FileIndex="28" Line="29" Column="13" EndLine="29" EndColumn="35" Covered="True" />
-          <Statement FileIndex="28" Line="31" Column="17" EndLine="31" EndColumn="30" Covered="True" />
-          <Statement FileIndex="28" Line="32" Column="17" EndLine="32" EndColumn="49" Covered="True" />
-          <Statement FileIndex="28" Line="34" Column="21" EndLine="34" EndColumn="64" Covered="True" />
-          <Statement FileIndex="28" Line="36" Column="17" EndLine="36" EndColumn="58" Covered="True" />
-          <Statement FileIndex="28" Line="39" Column="13" EndLine="40" EndColumn="43" Covered="True" />
-          <Statement FileIndex="28" Line="41" Column="13" EndLine="42" EndColumn="24" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="Visitor" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
         <Method Name="VisitConstant(System.Linq.Expressions.ConstantExpression):System.Linq.Expressions.Expression" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
           <Statement FileIndex="27" Line="33" Column="13" EndLine="33" EndColumn="45" Covered="True" />
         </Method>
