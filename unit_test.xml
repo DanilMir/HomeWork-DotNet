@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Root CoveredStatements="48" TotalStatements="172" CoveragePercent="28" ReportType="DetailedXml" DotCoverVersion="2021.3">
   <FileIndices>
     <File Index="1" Name="C:\Users\hb\HomeWork-DotNet\src\HW12\Benchmark.cs" ChecksumAlgorithm="SHA256" Checksum="A1DC0E5446A408F6511FEEE60C38F8F8549B582D3410307A1A1E4B1B58E72B9D" />
