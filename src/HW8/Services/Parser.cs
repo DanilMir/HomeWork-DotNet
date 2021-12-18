@@ -25,6 +25,8 @@ namespace HW8.Services
                 return 1;
             }
 
+            operation ??= "+";
+            
             if (!SupportedOperations.Contains(operation))
             {
                 return 2;
