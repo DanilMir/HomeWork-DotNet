@@ -30,6 +30,7 @@ namespace HW10.Tests
         {
             using var client = _factory.CreateClient();
             var watch = new Stopwatch();
+            await client.GetAsync($"{ResponseBody}{expression}");
             watch.Start();
             var response = await client.GetAsync($"{ResponseBody}{expression}");
             watch.Stop();
