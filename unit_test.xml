@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Root CoveredStatements="48" TotalStatements="48" CoveragePercent="100" ReportType="DetailedXml" DotCoverVersion="2021.2.2">
   <FileIndices>
     <File Index="16" Name="C:\Users\hb\HomeWork-DotNet\src\HW8.Tests\obj\Debug\net5.0\HW8.Tests.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="95B13CC94DC0A878FE7E7F7FE9B224BB9D7C29B2BFF4DCD842719C9A21A69C73" />
