@@ -32,16 +32,10 @@ namespace HW9.Tests
             watch.Stop();
             var result = decimal.Parse(await response.Content.ReadAsStringAsync(), NumberStyles.Any,
                 CultureInfo.InvariantCulture);
-            try
-            {
-                Assert.True(Math.Abs(result - answer) < 0.00001m);
-            }
-            catch
-            {
-                Assert.Equal(answer, result);
-            }
 
-            Assert.Equal(timeInSeconds, (int) Math.Round(watch.ElapsedMilliseconds / 1000.0));
+            Assert.Equal(answer, result);
+
+            Assert.True(timeInSeconds >= (int) Math.Round(watch.ElapsedMilliseconds / 1000.0));
         }
     }
 }
