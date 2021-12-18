@@ -4,18 +4,26 @@ using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace HW10.Tests
 {
+    
     public class UnitTest1 : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
 
         public UnitTest1(WebApplicationFactory<Startup> factor)
         {
-            _factory = factor;
+            _factory = factor.WithWebHostBuilder(builder =>
+                builder.ConfigureServices(services =>
+                    services
+                        .AddDbContext<HW10.Models.AppContext>(options =>
+                            options
+                                .UseInMemoryDatabase("dotnetExpr"))));
         }
 
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
