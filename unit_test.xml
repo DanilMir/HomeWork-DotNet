@@ -33,10 +33,10 @@
     <File Index="30" Name="C:\Users\hb\HomeWork-DotNet\src\HW9\Models\ErrorViewModel.cs" ChecksumAlgorithm="SHA256" Checksum="C66A71382554B9F89127F18FD904E3A34E61725C0CC70E8693664BB28A179D59" />
     <File Index="31" Name="C:\Users\hb\HomeWork-DotNet\src\HW9\Controllers\HomeController.cs" ChecksumAlgorithm="SHA256" Checksum="0131DA1A0B186A4C06AE6D41EB45ED24F891FB852CBCF26FE3E6F6E1E6E78F97" />
     <File Index="32" Name="C:\Users\hb\HomeWork-DotNet\src\HW9\Controllers\CalculatorController.cs" ChecksumAlgorithm="SHA256" Checksum="44CAE7CB157858ED10777DA90D1998849513E402F2AC047B747F1E50E66D3AA2" />
-    <File Index="36" Name="C:\Users\hb\HomeWork-DotNet\src\HW9.Tests\obj\Release\net5.0\HW9.Tests.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="390A3945F0EC8D10B8411A6CF52E0452032C4492F1C25A070999A7FCB7D1B1FF" />
-    <File Index="35" Name="C:\Users\hb\HomeWork-DotNet\src\HW9.Tests\obj\Release\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" ChecksumAlgorithm="SHA256" Checksum="3DAB221DDB7A8D7D050731DC8D289DF26D56F7DABEB91B3D7F96E5CB6C994C29" />
-    <File Index="34" Name="C:\Users\hb\.nuget\packages\microsoft.net.test.sdk\16.9.4\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs" ChecksumAlgorithm="SHA256" Checksum="D66F12F9433816A8C7DC1B2ACB9E1010F5418F5EEB51E80F1DF57AA1DCAB8D8A" />
-    <File Index="33" Name="C:\Users\hb\HomeWork-DotNet\src\HW9.Tests\UnitTest1.cs" ChecksumAlgorithm="SHA256" Checksum="BC0A34FD776CA8586481C3FF4D1619281B9E6F29C4BA303B9D4F679019226385" />
+    <File Index="33" Name="C:\Users\hb\HomeWork-DotNet\src\HW9.Tests\obj\Release\net5.0\HW9.Tests.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="390A3945F0EC8D10B8411A6CF52E0452032C4492F1C25A070999A7FCB7D1B1FF" />
+    <File Index="34" Name="C:\Users\hb\HomeWork-DotNet\src\HW9.Tests\obj\Release\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" ChecksumAlgorithm="SHA256" Checksum="3DAB221DDB7A8D7D050731DC8D289DF26D56F7DABEB91B3D7F96E5CB6C994C29" />
+    <File Index="35" Name="C:\Users\hb\.nuget\packages\microsoft.net.test.sdk\16.9.4\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs" ChecksumAlgorithm="SHA256" Checksum="D66F12F9433816A8C7DC1B2ACB9E1010F5418F5EEB51E80F1DF57AA1DCAB8D8A" />
+    <File Index="36" Name="C:\Users\hb\HomeWork-DotNet\src\HW9.Tests\UnitTest1.cs" ChecksumAlgorithm="SHA256" Checksum="84677428488A1AFDD5F156B57E8B10E0821214371566B7F1C85BBCC815EA8E52" />
   </FileIndices>
   <Assembly Name="HW12" CoveredStatements="0" TotalStatements="18" CoveragePercent="0">
     <Namespace Name="HW12" CoveredStatements="0" TotalStatements="18" CoveragePercent="0">
@@ -457,21 +457,21 @@
       <Type Name="UnitTest1" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
         <Type Name="&lt;TimeTest&gt;d__3" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
           <Method Name="MoveNext():System.Void" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
-            <Statement FileIndex="33" Line="28" Column="13" EndLine="28" EndColumn="50" Covered="True" />
-            <Statement FileIndex="33" Line="29" Column="13" EndLine="29" EndColumn="41" Covered="True" />
-            <Statement FileIndex="33" Line="30" Column="13" EndLine="30" EndColumn="27" Covered="True" />
-            <Statement FileIndex="33" Line="31" Column="13" EndLine="31" EndColumn="81" Covered="True" />
-            <Statement FileIndex="33" Line="32" Column="13" EndLine="32" EndColumn="26" Covered="True" />
-            <Statement FileIndex="33" Line="33" Column="13" EndLine="34" EndColumn="47" Covered="True" />
-            <Statement FileIndex="33" Line="36" Column="13" EndLine="36" EndColumn="42" Covered="True" />
-            <Statement FileIndex="33" Line="38" Column="13" EndLine="38" EndColumn="96" Covered="True" />
-            <Statement FileIndex="33" Line="39" Column="9" EndLine="39" EndColumn="10" Covered="True" />
+            <Statement FileIndex="36" Line="28" Column="13" EndLine="28" EndColumn="50" Covered="True" />
+            <Statement FileIndex="36" Line="29" Column="13" EndLine="29" EndColumn="41" Covered="True" />
+            <Statement FileIndex="36" Line="30" Column="13" EndLine="30" EndColumn="27" Covered="True" />
+            <Statement FileIndex="36" Line="31" Column="13" EndLine="31" EndColumn="81" Covered="True" />
+            <Statement FileIndex="36" Line="32" Column="13" EndLine="32" EndColumn="26" Covered="True" />
+            <Statement FileIndex="36" Line="33" Column="13" EndLine="34" EndColumn="47" Covered="True" />
+            <Statement FileIndex="36" Line="36" Column="13" EndLine="36" EndColumn="42" Covered="True" />
+            <Statement FileIndex="36" Line="38" Column="13" EndLine="38" EndColumn="96" Covered="True" />
+            <Statement FileIndex="36" Line="39" Column="9" EndLine="39" EndColumn="10" Covered="True" />
           </Method>
         </Type>
         <Method Name=".ctor(Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory&lt;HW9.Startup&gt;):System.Void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-          <Statement FileIndex="33" Line="16" Column="9" EndLine="16" EndColumn="64" Covered="True" />
-          <Statement FileIndex="33" Line="18" Column="13" EndLine="18" EndColumn="31" Covered="True" />
-          <Statement FileIndex="33" Line="19" Column="9" EndLine="19" EndColumn="10" Covered="True" />
+          <Statement FileIndex="36" Line="16" Column="9" EndLine="16" EndColumn="64" Covered="True" />
+          <Statement FileIndex="36" Line="18" Column="13" EndLine="18" EndColumn="31" Covered="True" />
+          <Statement FileIndex="36" Line="19" Column="9" EndLine="19" EndColumn="10" Covered="True" />
         </Method>
       </Type>
     </Namespace>
