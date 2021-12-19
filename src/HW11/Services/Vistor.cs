@@ -31,5 +31,10 @@ namespace HW11.Services
 
             return Expression.Constant(result);
         }
+
+        private Expression Visit(ConstantExpression node)
+        {
+            return node;
+        }
     }
 }

@@ -32,5 +32,10 @@ namespace HW11.Services
         {
             _logger.LogError($"Base exception: {exception.Message}");
         }
+        
+        public void Handle(DivideByZeroException exception)
+        {
+            _logger.LogError($"Divide by zero exception: {exception.Message}");
+        }
     }
 }

@@ -20,9 +20,9 @@ namespace HW11.Tests
 
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
 
-        [Theory, InlineData("1+2+3+4+5", 1, 15), InlineData("2/2", 1, 1), InlineData("(2+1)/2", 1, 1)]
-        [InlineData("(2+3)/12*7+8*9", 1, 72), InlineData("1+2+3", 1, 6)]
-        [InlineData("1/(2+3)", 1, 0)]
+        [Theory, InlineData("1+2+3+4+5", 6, 15), InlineData("2/2", 2, 1), InlineData("(2+1)/2", 3, 1)]
+        [InlineData("(2+3)/12*7+8*9", 6, 72), InlineData("1+2+3", 4, 6)]
+        [InlineData("1/(2+3)", 3, 0)]
         public async Task TimeTest(string expression, int timeInSeconds, decimal answer)
         {
             var client = _factory.CreateClient();
