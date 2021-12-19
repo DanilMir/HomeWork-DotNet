@@ -20,9 +20,9 @@ namespace HW9.Tests
 
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
 
-        [Theory, InlineData("1+2+3+4+5", 2, 15), InlineData("2/2", 2, 1), InlineData("(2+1)/2", 2, 1)]
-        [InlineData("(2+3)/12*7+8*9", 2, 72), InlineData("1-2+3", 2, -4)]
-        [InlineData("1/(2+3)", 2, 0)]
+        [Theory, InlineData("1+2+3+4+5", 3, 15), InlineData("2/2", 2, 1), InlineData("(2+1)/2", 3, 1)]
+        [InlineData("(2+3)/12*7+8*9", 6, 72), InlineData("1-2+3", 3, 2)]
+        [InlineData("1/(2+3)", 3, 0)]
         public async Task TimeTest(string expression, int timeInSeconds, decimal answer)
         {
             var client = _factory.CreateClient();
@@ -32,16 +32,10 @@ namespace HW9.Tests
             watch.Stop();
             var result = decimal.Parse(await response.Content.ReadAsStringAsync(), NumberStyles.Any,
                 CultureInfo.InvariantCulture);
-            try
-            {
-                Assert.True(Math.Abs(result - answer) < 0.00001m);
-            }
-            catch
-            {
-                Assert.Equal(answer, result);
-            }
 
-            Assert.Equal(timeInSeconds, (int) Math.Round(watch.ElapsedMilliseconds / 1000.0));
+            Assert.Equal(answer, result);
+
+            Assert.True(timeInSeconds >= (int) Math.Round(watch.ElapsedMilliseconds / 1000.0));
         }
     }
 }
