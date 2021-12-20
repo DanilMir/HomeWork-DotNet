@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using HW8.Models;
 using HW8.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace HW8.Controllers
             return View();
         }
 
-        [HttpGet]
+        
         public IActionResult Calc(string value1, string operation, string value2)
         {
             var result = _parser.TryParseArguments(
@@ -42,7 +43,9 @@ namespace HW8.Controllers
                     return BadRequest("Divide by zero");
             }
 
-            return Ok(_calculator.Calculate(val1, oper, val2));
+            var calcResult = _calculator.Calculate(val1, oper, val2);
+            ViewBag.CalculationResult = calcResult.ToString(CultureInfo.InvariantCulture);
+            return View();
         }
     }
 }
