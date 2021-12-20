@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Root CoveredStatements="48" TotalStatements="48" CoveragePercent="100" ReportType="DetailedXml" DotCoverVersion="2021.2.2">
+<Root CoveredStatements="43" TotalStatements="43" CoveragePercent="100" ReportType="DetailedXml" DotCoverVersion="2021.2.2">
   <FileIndices>
     <File Index="10" Name="C:\Users\hb\HomeWork-DotNet\src\HW9\obj\Debug\net5.0\HW9.RazorAssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="E5EFEEBCD58C4D72B5B450935807DA27B994B3E665BD325A8BC680FC30492B02" />
     <File Index="9" Name="C:\Users\hb\HomeWork-DotNet\src\HW9\obj\Debug\net5.0\HW9.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="11881CE129B6CB828BE048F209539E6E70582618E9398D172967CB4A28DA9221" />
