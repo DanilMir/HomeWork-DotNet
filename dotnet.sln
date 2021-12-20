@@ -1,5 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
+
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HW6", "src\HW6\HW6.fsproj", "{AC59F084-BD8A-4485-9F9C-120C05E5EA8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW8", "src\HW8\HW8.csproj", "{E3FE8FF3-F714-4ED8-910E-412CA25C8C08}"

@@ -4,19 +4,22 @@ using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace HW10.Tests
 {
-    public class UnitTest1 : IClassFixture<WebApplicationFactory<Startup>>
+    
+    public class UnitTest1 : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
-
-        public UnitTest1(WebApplicationFactory<Startup> factor)
-        {
-            _factory = factor;
-        }
+        
+         public UnitTest1(CustomWebApplicationFactory<Startup> factor)
+         {
+             _factory = factor;
+         }
 
         private const string ResponseBody = "https://localhost:5001/calc?expr=";
 
@@ -25,8 +28,9 @@ namespace HW10.Tests
         [InlineData("1/(2+3)", 1, 0)]
         public async Task TimeTest(string expression, int timeInSeconds, decimal answer)
         {
-            var client = _factory.CreateClient();
+            using var client = _factory.CreateClient();
             var watch = new Stopwatch();
+            await client.GetAsync($"{ResponseBody}{expression}");
             watch.Start();
             var response = await client.GetAsync($"{ResponseBody}{expression}");
             watch.Stop();

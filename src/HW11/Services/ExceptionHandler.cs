@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 
@@ -31,6 +31,11 @@ namespace HW11.Services
         public void Handle(Exception exception)
         {
             _logger.LogError($"Base exception: {exception.Message}");
+        }
+        
+        public void Handle(DivideByZeroException exception)
+        {
+            _logger.LogError($"Divide by zero exception: {exception.Message}");
         }
     }
 }
