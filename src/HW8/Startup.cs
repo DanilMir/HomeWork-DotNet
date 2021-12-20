@@ -27,11 +27,13 @@ namespace HW8
             services.AddControllersWithViews();
             services.AddTransient<ICalculator, Calculator>();
             services.AddTransient<IParser, Parser>();
+            services.AddMiniProfiler();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiniProfiler();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
