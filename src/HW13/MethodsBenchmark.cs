@@ -3,8 +3,12 @@ using BenchmarkDotNet.Attributes;
 
 namespace HW13;
 
+[MemoryDiagnoser]
 [MinColumn]
 [MaxColumn]
+[MedianColumn]
+[MeanColumn]
+[StdDevColumn]
 public class MethodsBenchmark
 {
     private TestMethods _testMethods;
