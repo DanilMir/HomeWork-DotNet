@@ -10,7 +10,7 @@ namespace HW10.Services
     {
         private readonly ICalculatorVisitor _calculatorVisitor;
         private AppContext _context;
-        private readonly ConcurrentDictionary<string, int> _cache = new();
+        private static readonly ConcurrentDictionary<string, int> Cache = new();
         
         public CachedCalculatorVisitor(ICalculatorVisitor calculatorVisitor, AppContext context)
         {
@@ -20,24 +20,15 @@ namespace HW10.Services
         
         public Expression Visit(Expression node)
         {
-            //var cache = _context.ExpressionCache.Find(node.ToString());
-
-            if (_cache.ContainsKey(node.ToString()))
+            if (Cache.ContainsKey(node.ToString()))
             {
-                //return Expression.Constant(cache.Value);
-                return Expression.Constant(_cache[node.ToString()]);
+                return Expression.Constant(Cache[node.ToString()]);
             }
 
             var result = _calculatorVisitor.Visit(node) as ConstantExpression;
 
-            _cache[node.ToString()] = (int) result?.Value!;
+            Cache[node.ToString()] = (int) result?.Value!;
             
-            // _context.ExpressionCache.Add(new ExpressionModel()
-            // {
-            //     Expression = node.ToString(),
-            //     Value = (int) result?.Value!
-            // });
-            //_context.SaveChanges();
             return result;
         }
     }
