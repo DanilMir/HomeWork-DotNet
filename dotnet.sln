@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW10", "src\HW10\HW10.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW13", "src\HW13\HW13.csproj", "{171575E1-BCB4-480D-9782-B61202EDF4AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW13.CalculatorTests", "HW13.CalculatorTests\HW13.CalculatorTests.csproj", "{6F803A0D-2B54-40F2-BE3E-7250C55DABD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{171575E1-BCB4-480D-9782-B61202EDF4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{171575E1-BCB4-480D-9782-B61202EDF4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{171575E1-BCB4-480D-9782-B61202EDF4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F803A0D-2B54-40F2-BE3E-7250C55DABD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F803A0D-2B54-40F2-BE3E-7250C55DABD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F803A0D-2B54-40F2-BE3E-7250C55DABD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F803A0D-2B54-40F2-BE3E-7250C55DABD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
