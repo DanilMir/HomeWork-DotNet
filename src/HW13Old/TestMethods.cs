@@ -1,6 +1,7 @@
 ﻿namespace HW13;
 
-class TestMethods
+class 
+    TestMethods
 {
     public string Method(string input)
     {
