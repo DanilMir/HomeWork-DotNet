@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Concurrent;
+using System.Linq.Expressions;
 using System.Threading;
 using HW10.Models;
 using HW10.Services;
@@ -7,8 +8,9 @@ namespace HW10.Services
 {
     public class CachedCalculatorVisitor : ICalculatorVisitor
     {
-        private ICalculatorVisitor _calculatorVisitor;
+        private readonly ICalculatorVisitor _calculatorVisitor;
         private AppContext _context;
+        private static readonly ConcurrentDictionary<string, int> Cache = new();
         
         public CachedCalculatorVisitor(ICalculatorVisitor calculatorVisitor, AppContext context)
         {
@@ -18,32 +20,15 @@ namespace HW10.Services
         
         public Expression Visit(Expression node)
         {
-            var cache = _context.ExpressionCache.Find(node.ToString());
-            var temp = "amogus";
-            for (int i = 0; i < 500; i++)
+            if (Cache.ContainsKey(node.ToString()))
             {
-                var thread = new Thread(x =>
-                {
-                    while (true)
-                    {
-                        Thread.Sleep(1000);
-                    }
-                });
-                thread.Start();
-            }
-            if (cache != null)
-            {
-                return Expression.Constant(cache.Value);
+                return Expression.Constant(Cache[node.ToString()]);
             }
 
             var result = _calculatorVisitor.Visit(node) as ConstantExpression;
 
-            _context.ExpressionCache.Add(new ExpressionModel()
-            {
-                Expression = node.ToString(),
-                Value = (int) result?.Value!
-            });
-            _context.SaveChanges();
+            Cache[node.ToString()] = (int) result?.Value!;
+            
             return result;
         }
     }
