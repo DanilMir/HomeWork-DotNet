@@ -12,4 +12,7 @@ namespace Dnd.BLL.Controllers
         public IActionResult CalculateCharacter([FromBody]CharacterModel character) => 
             new JsonResult(CharacterCalculator.CalculateCharacter(character));
 
+        
+        [HttpPost]
+        public 
 }

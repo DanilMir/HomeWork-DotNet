@@ -14,9 +14,13 @@ namespace DnD.UI.Controllers
     public class HomeController : Controller
     {
         private readonly HttpClient _client = new();
+        public List<Character> Characters { get; set; } = null!;
 
-        public IActionResult Index() =>
-            View();
+        public async  Task<IActionResult> Index()
+        {
+            var responseMessage = await _client.GetAsync("https://localhost:7049/GetAllCharacters");
+            return View();
+        }
 
         private record FightStartingModel(CalculatedCharacter Player, CalculatedCharacter Monster);
 
