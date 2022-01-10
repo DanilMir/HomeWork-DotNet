@@ -9,10 +9,8 @@ namespace Dnd.BLL.Controllers
     public class CharacterController : Controller
     {
         [HttpPost]
-        public IActionResult CalculateCharacter([FromBody]CharacterModel character) => 
+        public IActionResult CalculateCharacter([FromBody] CharacterModel character) =>
             new JsonResult(CharacterCalculator.CalculateCharacter(character));
+    }
 
-        
-        [HttpPost]
-        public 
 }

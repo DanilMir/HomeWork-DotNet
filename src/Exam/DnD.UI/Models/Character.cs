@@ -10,6 +10,6 @@
         public int DiceType { get; set; }
         public int DamageModifier { get; set; }
         public int Weapon { get; set; }
-        public int AC { get; set; }
+        public int ArmorClass { get; set; }
     }
 }

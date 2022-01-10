@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dnd.DB.Models;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,14 @@ namespace Dnd.DB.Repository
         {
             _context.Monsters.Update(monster);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<Monster> GetRandomMonster()
+        {
+            var random = new Random((int) DateTime.Now.Ticks);
+            var list = await _context.Monsters.ToListAsync();
+
+            return list[random.Next(list.Count) + 1];
         }
     }
 }
