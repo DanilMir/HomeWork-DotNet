@@ -2,9 +2,9 @@
 
 namespace Dnd.BLL.Services
 {
-    public class CharacterCalculator : ICharacterCalculator
+    public class CharacterCalculator
     {
-        public CalculatedCharacterModel CalculateCharacter(CharacterModel character)
+        public static CalculatedCharacterModel CalculateCharacter(CharacterModel character)
         {
             return new CalculatedCharacterModel()
             {

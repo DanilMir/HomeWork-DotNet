@@ -56,8 +56,10 @@ namespace Dnd.BLL.Services
             {
                 var random = Random.Next(player.DiceType) + 1;
                 monster.HitPoints -= random + player.Weapon + player.DamageModifier;
+                fight.Log.Add($"{player.Name} нанес урон {random + player.Weapon + player.DamageModifier}");
                 if (monster.HitPoints > 0) continue;
                 fight.FightStatus = FightStatus.FinishedPlayerWon;
+                fight.Log.Add($"{player.Name} Победил конец боя");
                 break;
             }
 
@@ -67,8 +69,10 @@ namespace Dnd.BLL.Services
             {
                 var random = Random.Next(monster.DiceType) + 1;
                 player.HitPoints -= random + monster.Weapon + monster.DamageModifier;
+                fight.Log.Add($"{monster.Name} нанес урон {random + monster.Weapon + monster.DamageModifier}");
                 if (player.HitPoints > 0) continue;
                 fight.FightStatus = FightStatus.FinishedEnemyWon;
+                fight.Log.Add($"{monster.Name} Победил конец боя");
                 break;
             }
             return fight;
