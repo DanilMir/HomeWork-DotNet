@@ -9,10 +9,15 @@ namespace Dnd.BLL.Controllers
     [Route("[action]")]
     public class FightsController : Controller
     {
-        [HttpPost]
-        public IActionResult StartFight(MonsterModel monster, CharacterModel character) => 
-            Ok(FightDecider.CreateFight(character, monster));
+        public record FightInput(CharacterModel Player, MonsterModel Monster);
 
+        [HttpPost]
+        public IActionResult StartFight(FightInput input)
+        {
+            var (player, monster) = input;
+            return Ok(FightDecider.CreateFight(player, monster));
+        }
+        
         [HttpPost]
         public IActionResult MakeTurn([FromQuery]Guid fightId) =>
             new JsonResult(FightDecider.MakeTurnNew(fightId));

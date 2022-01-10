@@ -22,9 +22,9 @@ namespace DnD.UI.Controllers
         }
 
         private record FightStartingModel(Character Player, Character Monster);
-        private record FightResult(string Log);
+        private record FightResult(List<string> Log);
 
-        public record FightsModel(CalculatedCharacter Character, string Log);
+        public record FightModel(CalculatedCharacter Character, List<string> Log);
         public async Task<IActionResult> Fight(Character player)
             {
                 var q = await _client.GetAsync("https://localhost:8001/GetRandomMonster");
