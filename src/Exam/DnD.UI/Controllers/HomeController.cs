@@ -13,30 +13,32 @@ namespace DnD.UI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly HttpClient _client = new();
-        public List<Character> Characters { get; set; } = null!;
+        private static HttpClient _client = new();
 
-        public async  Task<IActionResult> Index()
-        {
-            return View();
-        }
+        public IActionResult Index() =>
+            View();
+
 
         private record FightStartingModel(Character Player, Character Monster);
-        private record FightResult(List<string> Log);
+        private record FightResult(string Log);
 
-        public record FightModel(CalculatedCharacter Character, List<string> Log);
+        public record FightModel(CalculatedCharacter Character, string Log);
+
         public async Task<IActionResult> Fight(Character player)
-            {
-                var q = await _client.GetAsync("https://localhost:8001/GetRandomMonster");
-                var monster = await q.Content.ReadFromJsonAsync<Character>();
-                var w =
-                    await _client.PostAsync("https://localhost:8003/CalculateCharacter", JsonContent.Create(player));
-                var calculated = await w.Content.ReadFromJsonAsync<CalculatedCharacter>();
-        
-                var e = await _client.PostAsync("https://localhost:8003/Fight",
-                    JsonContent.Create(new FightStartingModel(player, monster!)));
-                var log = (await e.Content.ReadFromJsonAsync<FightResult>())!.Log;
-                return View(new FightModel(calculated!, log));
-            }
+        {
+            var q = await _client.GetAsync("https://localhost:8001/GetRandomMonster");
+            var monster = await q.Content.ReadFromJsonAsync<Character>();
+            
+            var w =
+                await _client.PostAsync("https://localhost:8003/CalculateCharacter", JsonContent.Create(player));
+            var calculated = await w.Content.ReadFromJsonAsync<CalculatedCharacter>();
+
+            var e = await _client.PostAsync("https://localhost:8003/Fight",
+                JsonContent.Create(new FightStartingModel(player, monster!)));
+                
+                
+            var log = (await e.Content.ReadFromJsonAsync<FightResult>())!.Log;
+            return View(new FightModel(calculated!, log));
+        }
     }
 }

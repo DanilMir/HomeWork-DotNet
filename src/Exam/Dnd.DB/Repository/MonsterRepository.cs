@@ -45,7 +45,7 @@ namespace Dnd.DB.Repository
             var random = new Random((int) DateTime.Now.Ticks);
             var list = await _context.Monsters.ToListAsync();
 
-            return list[random.Next(list.Count) + 1];
+            return list[random.Next(list.Count)];
         }
     }
 }

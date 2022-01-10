@@ -4,9 +4,9 @@ namespace Dnd.BLL.Services
 {
     public class CharacterCalculator
     {
-        public static CalculatedCharacterModel CalculateCharacter(CharacterModel character)
+        public static CalculatedCharacter  CalculateCharacter(Character  character)
         {
-            return new CalculatedCharacterModel()
+            return new CalculatedCharacter
             {
                 Name = character.Name,
                 HitPoints = character.HitPoints,
@@ -16,12 +16,12 @@ namespace Dnd.BLL.Services
                 DiceType = character.DiceType,
                 DamageModifier = character.DamageModifier,
                 Weapon = character.Weapon,
-                ArmorClass = character.ArmorClass,
+                Ac = character.Ac,
                 MinAcToAlwaysHit = character.AttackModifier + character.Weapon + 1,
-                DamagePerRoundLeft = (character.Damage + character.Weapon + character.DamageModifier) *
-                                     character.AttackPerRound,
-                DamagePerRoundRight = (character.DiceType + character.Weapon + character.DamageModifier) *
-                                      character.AttackPerRound
+                MinDamagePerRound = (character.Damage + character.Weapon + character.DamageModifier) *
+                                    character.AttackPerRound,
+                MaxDamagePerRound = (character.Damage * character.DiceType + character.Weapon + character.DamageModifier) *
+                                    character.AttackPerRound
             };
         }
     }

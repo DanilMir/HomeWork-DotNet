@@ -5,4 +5,11 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+@Html.DisplayFor(model => model.Character)
+
+<br>
+@foreach (var str in Model!.Log.Split('\n'))
+{
+    <p style="background:#FFCCCC">@str</p>
+    <br>
+}
