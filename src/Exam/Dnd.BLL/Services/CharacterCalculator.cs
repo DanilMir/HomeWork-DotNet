@@ -16,7 +16,7 @@ namespace Dnd.BLL.Services
                 DiceType = character.DiceType,
                 DamageModifier = character.DamageModifier,
                 Weapon = character.Weapon,
-                AC = character.AC,
+                ArmorClass = character.ArmorClass,
                 MinAcToAlwaysHit = character.AttackModifier + character.Weapon + 1,
                 DamagePerRoundLeft = (character.Damage + character.Weapon + character.DamageModifier) *
                                      character.AttackPerRound,

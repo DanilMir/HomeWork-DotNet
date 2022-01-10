@@ -7,8 +7,8 @@ namespace Dnd.BLL.Models
     public class Fight
     {
         public Guid FightId { get; set; }
-        public CalculatedCharacterModel Player { get; set; }
-        public CalculatedCharacterModel Monster { get; set; }
+        public CharacterModel Player { get; set; }
+        public MonsterModel Monster { get; set; }
         // public bool? PlayerWon { get; set; }
         public FightStatus FightStatus { get; set; }
         
