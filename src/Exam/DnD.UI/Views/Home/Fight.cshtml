@@ -8,8 +8,11 @@
 @Html.DisplayFor(model => model.Character)
 
 <br>
+@{
+    var count = 0;
+}
 @foreach (var str in Model!.Log.Split('\n'))
 {
-    <p style="background:#FFCCCC">@str</p>
+    <p style="background:#FFCCCC">@(count++ + ") " + str)</p>
     <br>
 }
